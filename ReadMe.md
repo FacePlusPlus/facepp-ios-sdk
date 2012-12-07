@@ -15,8 +15,8 @@
 	- Sample code:
 	<pre><code>\#import "FaceppAPI.h"
 	\- (BOOL)application:(UIApplication \*)application didFinishLaunchingWithOptions:(NSDictionary \*)launchOptions {
-		[FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
-		...
+			[FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
+			...
 	}</code></pre>
 
 5. Call FaceppAPI to do anything you want, it will return a struct called `FaceppResult`
@@ -56,8 +56,8 @@ FaceppResult\* result = [[FaceppAPI group] deleteWithGroupName: @"GROUP_NAME" or
 	- 举例来说，具体工程入口的代码如下所示:
 	<pre><code>\#import "FaceppAPI.h"
 	\- (BOOL)application:(UIApplication \*)application didFinishLaunchingWithOptions:(NSDictionary \*)launchOptions {
-		[FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
-		...
+			[FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
+			...
 	}</code></pre>
 
 5. 使用 FaceppAPI接口来调用任何您想调用的接口，在获得数据以后其将返回一个`FaceppResult`结构
