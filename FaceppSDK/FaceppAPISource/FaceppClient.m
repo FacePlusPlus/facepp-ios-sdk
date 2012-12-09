@@ -142,6 +142,11 @@ static bool debugMode = false;
         NSLog(@"[FacePlusPlus]response JSON: \n%@", [[[NSString alloc] initWithBytes:[responseData bytes] length:[responseData length] encoding:NSUTF8StringEncoding] autorelease]);
     FaceppResult *result;
     
+    if (responseData == nil) {
+        result = [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:@"no response data" andHttpStatusCode:httpStatusCode andErrorCode:0]];
+        return result;
+    }
+    
     NSError *jsonError = nil;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:&jsonError];
     if (jsonError != NULL) {
