@@ -7,7 +7,7 @@
 	- Choose 'Recursively create groups for any added folders'
 
 3. In xcodeproj -> Build Settings, set **"Objective-C Automatic Reference Counting"** to **NO**
-	- If you want to use automatic reference counting, you can use "FaceppSDK_ARC" instead of "FaceppSDK" which in step 1&2.
+	- If you want to use automatic reference counting, you can use "FaceppSDK_ARC" instead of "FaceppSDK" which in step 1&2, automatic reference counting can support only 5.0 or newer version of iOS.
 
 4. In your Application Delegate:
 	- Import FaceppAPI
