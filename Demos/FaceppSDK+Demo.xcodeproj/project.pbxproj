@@ -34,6 +34,26 @@
 		C74DD366166F55C200B2B56D /* FaceppRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = C72D209816676BF30069619F /* FaceppRecognition.m */; };
 		C74DD368166F55C200B2B56D /* FaceppError.m in Sources */ = {isa = PBXBuildFile; fileRef = C72D209B16676BF30069619F /* FaceppError.m */; };
 		C74DD36A166F55C200B2B56D /* FaceppResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C72D209D16676BF30069619F /* FaceppResult.m */; };
+		C7A993931675EDE700ABA98E /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A9937C1675EDE700ABA98E /* CDataScanner.m */; };
+		C7A993941675EDE700ABA98E /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A9937C1675EDE700ABA98E /* CDataScanner.m */; };
+		C7A993951675EDE700ABA98E /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A9937F1675EDE700ABA98E /* CFilteringJSONSerializer.m */; };
+		C7A993961675EDE700ABA98E /* CFilteringJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A9937F1675EDE700ABA98E /* CFilteringJSONSerializer.m */; };
+		C7A993971675EDE700ABA98E /* CJSONDeserializer_BlocksExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A993811675EDE700ABA98E /* CJSONDeserializer_BlocksExtensions.m */; };
+		C7A993981675EDE700ABA98E /* CJSONDeserializer_BlocksExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A993811675EDE700ABA98E /* CJSONDeserializer_BlocksExtensions.m */; };
+		C7A993991675EDE700ABA98E /* CJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A993831675EDE700ABA98E /* CJSONSerialization.m */; };
+		C7A9939A1675EDE700ABA98E /* CJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A993831675EDE700ABA98E /* CJSONSerialization.m */; };
+		C7A9939B1675EDE700ABA98E /* CJSONSerializedData.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A993851675EDE700ABA98E /* CJSONSerializedData.m */; };
+		C7A9939C1675EDE700ABA98E /* CJSONSerializedData.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A993851675EDE700ABA98E /* CJSONSerializedData.m */; };
+		C7A9939D1675EDE700ABA98E /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A993881675EDE700ABA98E /* CDataScanner_Extensions.m */; };
+		C7A9939E1675EDE700ABA98E /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A993881675EDE700ABA98E /* CDataScanner_Extensions.m */; };
+		C7A9939F1675EDE700ABA98E /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A9938A1675EDE700ABA98E /* NSDictionary_JSONExtensions.m */; };
+		C7A993A01675EDE700ABA98E /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A9938A1675EDE700ABA98E /* NSDictionary_JSONExtensions.m */; };
+		C7A993A11675EDE700ABA98E /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A9938D1675EDE700ABA98E /* CJSONDeserializer.m */; };
+		C7A993A21675EDE700ABA98E /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A9938D1675EDE700ABA98E /* CJSONDeserializer.m */; };
+		C7A993A31675EDE700ABA98E /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A9938F1675EDE700ABA98E /* CJSONScanner.m */; };
+		C7A993A41675EDE700ABA98E /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A9938F1675EDE700ABA98E /* CJSONScanner.m */; };
+		C7A993A51675EDE700ABA98E /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A993911675EDE700ABA98E /* CJSONSerializer.m */; };
+		C7A993A61675EDE700ABA98E /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A993911675EDE700ABA98E /* CJSONSerializer.m */; };
 		C7BCE29A16709FBF00DE14F8 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7BCE29916709FBF00DE14F8 /* icon.png */; };
 		C7BCE29C16709FC300DE14F8 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7BCE29B16709FC300DE14F8 /* icon@2x.png */; };
 		C7CE8D64166F4A25003E07C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C722222C1666371700D74087 /* UIKit.framework */; };
@@ -85,6 +105,27 @@
 		C72D209B16676BF30069619F /* FaceppError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceppError.m; sourceTree = "<group>"; };
 		C72D209C16676BF30069619F /* FaceppResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceppResult.h; sourceTree = "<group>"; };
 		C72D209D16676BF30069619F /* FaceppResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceppResult.m; sourceTree = "<group>"; };
+		C7A9937B1675EDE700ABA98E /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
+		C7A9937C1675EDE700ABA98E /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
+		C7A9937E1675EDE700ABA98E /* CFilteringJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFilteringJSONSerializer.h; sourceTree = "<group>"; };
+		C7A9937F1675EDE700ABA98E /* CFilteringJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFilteringJSONSerializer.m; sourceTree = "<group>"; };
+		C7A993801675EDE700ABA98E /* CJSONDeserializer_BlocksExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer_BlocksExtensions.h; sourceTree = "<group>"; };
+		C7A993811675EDE700ABA98E /* CJSONDeserializer_BlocksExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer_BlocksExtensions.m; sourceTree = "<group>"; };
+		C7A993821675EDE700ABA98E /* CJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerialization.h; sourceTree = "<group>"; };
+		C7A993831675EDE700ABA98E /* CJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerialization.m; sourceTree = "<group>"; };
+		C7A993841675EDE700ABA98E /* CJSONSerializedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializedData.h; sourceTree = "<group>"; };
+		C7A993851675EDE700ABA98E /* CJSONSerializedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializedData.m; sourceTree = "<group>"; };
+		C7A993871675EDE700ABA98E /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner_Extensions.h; sourceTree = "<group>"; };
+		C7A993881675EDE700ABA98E /* CDataScanner_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner_Extensions.m; sourceTree = "<group>"; };
+		C7A993891675EDE700ABA98E /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		C7A9938A1675EDE700ABA98E /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		C7A9938C1675EDE700ABA98E /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		C7A9938D1675EDE700ABA98E /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		C7A9938E1675EDE700ABA98E /* CJSONScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONScanner.h; sourceTree = "<group>"; };
+		C7A9938F1675EDE700ABA98E /* CJSONScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONScanner.m; sourceTree = "<group>"; };
+		C7A993901675EDE700ABA98E /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		C7A993911675EDE700ABA98E /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		C7A993921675EDE700ABA98E /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
 		C7BCE29916709FBF00DE14F8 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		C7BCE29B16709FC300DE14F8 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		C7CE8D62166F4A25003E07C5 /* FaceppPhotoPickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceppPhotoPickerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +229,7 @@
 		C72D208916676BF30069619F /* FaceppSDK */ = {
 			isa = PBXGroup;
 			children = (
+				C7A9937A1675EDE700ABA98E /* TouchJSON */,
 				C72D208A16676BF30069619F /* FaceppAPI.h */,
 				C72D208B16676BF30069619F /* FaceppAPI.m */,
 				C72D208C16676BF30069619F /* FaceppAPISource */,
@@ -225,6 +267,58 @@
 				C72D209D16676BF30069619F /* FaceppResult.m */,
 			);
 			path = FaceppResult;
+			sourceTree = "<group>";
+		};
+		C7A9937A1675EDE700ABA98E /* TouchJSON */ = {
+			isa = PBXGroup;
+			children = (
+				C7A9937B1675EDE700ABA98E /* CDataScanner.h */,
+				C7A9937C1675EDE700ABA98E /* CDataScanner.m */,
+				C7A9937D1675EDE700ABA98E /* Experimental */,
+				C7A993861675EDE700ABA98E /* Extensions */,
+				C7A9938B1675EDE700ABA98E /* JSON */,
+			);
+			path = TouchJSON;
+			sourceTree = "<group>";
+		};
+		C7A9937D1675EDE700ABA98E /* Experimental */ = {
+			isa = PBXGroup;
+			children = (
+				C7A9937E1675EDE700ABA98E /* CFilteringJSONSerializer.h */,
+				C7A9937F1675EDE700ABA98E /* CFilteringJSONSerializer.m */,
+				C7A993801675EDE700ABA98E /* CJSONDeserializer_BlocksExtensions.h */,
+				C7A993811675EDE700ABA98E /* CJSONDeserializer_BlocksExtensions.m */,
+				C7A993821675EDE700ABA98E /* CJSONSerialization.h */,
+				C7A993831675EDE700ABA98E /* CJSONSerialization.m */,
+				C7A993841675EDE700ABA98E /* CJSONSerializedData.h */,
+				C7A993851675EDE700ABA98E /* CJSONSerializedData.m */,
+			);
+			path = Experimental;
+			sourceTree = "<group>";
+		};
+		C7A993861675EDE700ABA98E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C7A993871675EDE700ABA98E /* CDataScanner_Extensions.h */,
+				C7A993881675EDE700ABA98E /* CDataScanner_Extensions.m */,
+				C7A993891675EDE700ABA98E /* NSDictionary_JSONExtensions.h */,
+				C7A9938A1675EDE700ABA98E /* NSDictionary_JSONExtensions.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C7A9938B1675EDE700ABA98E /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				C7A9938C1675EDE700ABA98E /* CJSONDeserializer.h */,
+				C7A9938D1675EDE700ABA98E /* CJSONDeserializer.m */,
+				C7A9938E1675EDE700ABA98E /* CJSONScanner.h */,
+				C7A9938F1675EDE700ABA98E /* CJSONScanner.m */,
+				C7A993901675EDE700ABA98E /* CJSONSerializer.h */,
+				C7A993911675EDE700ABA98E /* CJSONSerializer.m */,
+				C7A993921675EDE700ABA98E /* JSONRepresentation.h */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		C7CE8D67166F4A25003E07C5 /* FaceppPhotoPickerDemo */ = {
@@ -368,6 +462,16 @@
 				C72D20BD16676BF30069619F /* FaceppRecognition.m in Sources */,
 				C72D20BE16676BF30069619F /* FaceppError.m in Sources */,
 				C72D20BF16676BF30069619F /* FaceppResult.m in Sources */,
+				C7A993931675EDE700ABA98E /* CDataScanner.m in Sources */,
+				C7A993951675EDE700ABA98E /* CFilteringJSONSerializer.m in Sources */,
+				C7A993971675EDE700ABA98E /* CJSONDeserializer_BlocksExtensions.m in Sources */,
+				C7A993991675EDE700ABA98E /* CJSONSerialization.m in Sources */,
+				C7A9939B1675EDE700ABA98E /* CJSONSerializedData.m in Sources */,
+				C7A9939D1675EDE700ABA98E /* CDataScanner_Extensions.m in Sources */,
+				C7A9939F1675EDE700ABA98E /* NSDictionary_JSONExtensions.m in Sources */,
+				C7A993A11675EDE700ABA98E /* CJSONDeserializer.m in Sources */,
+				C7A993A31675EDE700ABA98E /* CJSONScanner.m in Sources */,
+				C7A993A51675EDE700ABA98E /* CJSONSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +492,16 @@
 				C7CE8D72166F4A25003E07C5 /* AppDelegate.m in Sources */,
 				C7CE8D7B166F4A25003E07C5 /* ViewController.m in Sources */,
 				C7E5A15D1671D6E300CAA939 /* MBProgressHUD.m in Sources */,
+				C7A993941675EDE700ABA98E /* CDataScanner.m in Sources */,
+				C7A993961675EDE700ABA98E /* CFilteringJSONSerializer.m in Sources */,
+				C7A993981675EDE700ABA98E /* CJSONDeserializer_BlocksExtensions.m in Sources */,
+				C7A9939A1675EDE700ABA98E /* CJSONSerialization.m in Sources */,
+				C7A9939C1675EDE700ABA98E /* CJSONSerializedData.m in Sources */,
+				C7A9939E1675EDE700ABA98E /* CDataScanner_Extensions.m in Sources */,
+				C7A993A01675EDE700ABA98E /* NSDictionary_JSONExtensions.m in Sources */,
+				C7A993A21675EDE700ABA98E /* CJSONDeserializer.m in Sources */,
+				C7A993A41675EDE700ABA98E /* CJSONScanner.m in Sources */,
+				C7A993A61675EDE700ABA98E /* CJSONSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

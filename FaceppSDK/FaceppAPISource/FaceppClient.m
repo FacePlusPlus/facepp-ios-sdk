@@ -7,12 +7,14 @@
 //
 
 #import "FaceppClient.h"
+#import "CJSONDeserializer.h"
 
 static bool initilized = false;
 static NSString *NOT_INIT_ERROR_MSG = @"FacePlusPlus client has not been initialized yet, please use [FaceppAPI initWithApiKey: andApiSecret] first";
 static NSString *FACEPP_API_KEY = @"";
 static NSString *FACEPP_API_SECRET = @"";
 static bool debugMode = false;
+static bool _ios50orNewer = false;
 
 #define SERVER_ADDRESS @"http://api.faceplusplus.com/"
 
@@ -29,6 +31,9 @@ static bool debugMode = false;
     
     FACEPP_API_KEY = [[NSString stringWithFormat:@"%@", apiKey] retain];
     FACEPP_API_SECRET = [[NSString stringWithFormat:@"%@", apiSecret] retain];
+    
+    if( [ [[UIDevice currentDevice] systemVersion] compare: @"5.0" options: NSNumericSearch ] != NSOrderedAscending )
+        _ios50orNewer = true;
 }
 
 +(NSString *)generateBoundaryString {
@@ -60,7 +65,6 @@ static bool debugMode = false;
             [urlString appendFormat:@"&%@=%@", [params objectAtIndex:i], [params objectAtIndex:i+1]];
         }
     }
-    
     return urlString;
 }
 
@@ -82,7 +86,7 @@ static bool debugMode = false;
     NSHTTPURLResponse* urlResponse = nil;
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
     statusCode = urlResponse.statusCode;
-
+    
     [request release];
     return [FaceppClient generateResultWithResponseData:responseData error:error httpStatusCode:statusCode];
 }
@@ -90,7 +94,7 @@ static bool debugMode = false;
 +(FaceppResult*) requestWithImage: (NSString*)method: (NSData*) imageData: (NSArray*)params {
     if (!initilized)
         return [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:NOT_INIT_ERROR_MSG andHttpStatusCode:0 andErrorCode:0]];
-
+    
     NSError *error = NULL;
     NSInteger statusCode = 0;
     
@@ -122,7 +126,7 @@ static bool debugMode = false;
     [request setHTTPBody:body];
     
     NSString *urlString = [FaceppClient generateRequestUrlPrefix:method : params];
-
+    
     // set URL
     [request setURL: [NSURL URLWithString:urlString]];
     if (debugMode)
@@ -148,7 +152,13 @@ static bool debugMode = false;
     }
     
     NSError *jsonError = nil;
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:&jsonError];
+    
+    NSDictionary *dict;
+    if (_ios50orNewer) {
+        dict = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:&jsonError];
+    } else {
+        dict = [[CJSONDeserializer deserializer] deserializeAsDictionary:responseData error:&jsonError];
+    }
     if (jsonError != NULL) {
         if (error != NULL) {
             return [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:[error description] andHttpStatusCode:httpStatusCode andErrorCode:0]];
@@ -163,7 +173,7 @@ static bool debugMode = false;
     result.content = [dict retain];
     
     if (error != NULL)
-        return [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:[error description] andHttpStatusCode:httpStatusCode andErrorCode:0]];    
+        return [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:[error description] andHttpStatusCode:httpStatusCode andErrorCode:0]];
     
     return result;
 }
