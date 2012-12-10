@@ -149,6 +149,7 @@
 
 // Use facepp SDK to detect faces 
 -(void) detectWithImage: (UIImage*) image {
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     FaceppResult *result = [[FaceppAPI detection] detectWithURL:nil imageData:UIImageJPEGRepresentation(image, 1)];
     
     if (result.success) {
@@ -195,6 +196,8 @@
     }
     [image release];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
+    [pool release];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
