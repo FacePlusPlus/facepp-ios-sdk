@@ -48,7 +48,7 @@ FaceppResult\* result = [[FaceppAPI group] deleteWithGroupName: @"GROUP_NAME" or
 	- 将'Recursively create groups for any added folders'选项钩上
 
 3. 在工程设置文件中的Build Settings内，将**"Objective-C Automatic Reference Counting"**设置为**NO**
-	- 注：如果需要使用自动引用计数，请用FaceppSDK_ARC替换FaceppSDK，并重新执行步骤1和2
+	- 注：如果需要使用自动引用计数，请用FaceppSDK_ARC替换FaceppSDK，并重新执行步骤1和2，自动引用计数sdk仅支持ios5.0之后的版本。
 
 4. 在您的应用程序入口处添加以下代码：
 	- import FaceppAPI
