@@ -33,7 +33,7 @@
         [params addObject:@"mode"];
         [params addObject:@"oneface"];
     }
-    if (mode != FaceppDetectionAttributeAll) {
+    if (attribute != FaceppDetectionAttributeAll) {
         [params addObject:@"attribute"];
         [params addObject:@"none"];
     }
