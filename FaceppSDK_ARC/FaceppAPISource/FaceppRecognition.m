@@ -140,6 +140,8 @@
         if ([result success]) {
             if ([[result content][@"result"][@"success"] boolValue] == true)
                 return result;
+        } else {
+            return result;
         }
         [NSThread sleepForTimeInterval:interval];
     }
