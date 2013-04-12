@@ -1,3 +1,10 @@
+##2.0 update
+* Compatible with 2.0 API
+* Modify the initialize function to change region between CN and US 
+	- Example: `[FaceppAPI initWithApiKey: @"YOUR_KEY" andApiSecret: @"YOUR_SECRET" andRegion: API_SERVER_REGION]`
+* Remove FaceppSDK_ARC (**deprecated**)
+
+------------------------------------------------------
 ##To integrate FacePlusPlus SDK into your iOS project
 
 1. In the finder, drag FaceppSDK into project's file folder.
@@ -7,7 +14,7 @@
 	- Choose 'Recursively create groups for any added folders'
 
 3. In xcodeproj -> Build Settings, set **"Objective-C Automatic Reference Counting"** to **NO**
-	- If you want to use automatic reference counting, you can use "FaceppSDK_ARC" instead of "FaceppSDK" which in step 1&2, automatic reference counting can support only 5.0 or newer version of iOS.
+	- If you want to use automatic reference counting, you can use "FaceppSDK_ARC" instead of "FaceppSDK" which in step 1&2.
 
 4. In your Application Delegate:
 	- Import FaceppAPI
@@ -15,8 +22,8 @@
 	- Sample code:
 	<pre><code>\#import "FaceppAPI.h"
 	\- (BOOL)application:(UIApplication \*)application didFinishLaunchingWithOptions:(NSDictionary \*)launchOptions {
-			[FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
-			...
+		[FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
+		...
 	}</code></pre>
 
 5. Call FaceppAPI to do anything you want, it will return a struct called `FaceppResult`
@@ -48,7 +55,7 @@ FaceppResult\* result = [[FaceppAPI group] deleteWithGroupName: @"GROUP_NAME" or
 	- 将'Recursively create groups for any added folders'选项钩上
 
 3. 在工程设置文件中的Build Settings内，将**"Objective-C Automatic Reference Counting"**设置为**NO**
-	- 注：如果需要使用自动引用计数，请用FaceppSDK_ARC替换FaceppSDK，并重新执行步骤1和2，自动引用计数sdk仅支持ios5.0之后的版本。
+	- 注：如果需要使用自动引用计数，请用FaceppSDK_ARC替换FaceppSDK，并重新执行步骤1和2
 
 4. 在您的应用程序入口处添加以下代码：
 	- import FaceppAPI
@@ -56,8 +63,8 @@ FaceppResult\* result = [[FaceppAPI group] deleteWithGroupName: @"GROUP_NAME" or
 	- 举例来说，具体工程入口的代码如下所示:
 	<pre><code>\#import "FaceppAPI.h"
 	\- (BOOL)application:(UIApplication \*)application didFinishLaunchingWithOptions:(NSDictionary \*)launchOptions {
-			[FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
-			...
+		[FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
+		...
 	}</code></pre>
 
 5. 使用 FaceppAPI接口来调用任何您想调用的接口，在获得数据以后其将返回一个`FaceppResult`结构

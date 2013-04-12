@@ -16,7 +16,9 @@ static NSString *FACEPP_API_SECRET = @"";
 static bool debugMode = false;
 static bool _ios50orNewer = false;
 
-#define SERVER_ADDRESS @"http://api.faceplusplus.com/"
+#define CN_SERVER_ADDRESS @"https://apicn.faceplusplus.com/v2/"
+#define US_SERVER_ADDRESS @"https://apius.faceplusplus.com/v2/"
+static NSString *SERVER_ADDRESS = CN_SERVER_ADDRESS;
 
 @implementation FaceppClient
 
@@ -24,22 +26,33 @@ static bool _ios50orNewer = false;
     debugMode = on;
 }
 
-+(void) initializeWithApiKey: (NSString*)apiKey apiSecret:(NSString*) apiSecret {
-    initilized = true;
++(void) initializeWithApiKey:(NSString*)apiKey apiSecret:(NSString*) apiSecret region:(APIServerRegion)region {
     [FACEPP_API_KEY release];
     [FACEPP_API_SECRET release];
     
     FACEPP_API_KEY = [[NSString stringWithFormat:@"%@", apiKey] retain];
     FACEPP_API_SECRET = [[NSString stringWithFormat:@"%@", apiSecret] retain];
     
+    switch (region) {
+        case APIServerRegionCN:
+            SERVER_ADDRESS = CN_SERVER_ADDRESS;
+            break;
+        case APIServerRegionUS:
+            SERVER_ADDRESS = US_SERVER_ADDRESS;
+            break;
+        default:
+            break;
+    }
+    
     if( [ [[UIDevice currentDevice] systemVersion] compare: @"5.0" options: NSNumericSearch ] != NSOrderedAscending )
         _ios50orNewer = true;
+    initilized = true;
 }
 
 +(NSString *)generateBoundaryString {
-    CFUUIDRef       uuid;
-    CFStringRef     uuidStr;
-    NSString *      result;
+    CFUUIDRef uuid;
+    CFStringRef uuidStr;
+    NSString *result;
     
     uuid = CFUUIDCreate(NULL);
     assert(uuid != NULL);

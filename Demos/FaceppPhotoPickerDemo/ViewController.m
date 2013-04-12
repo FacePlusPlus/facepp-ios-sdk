@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #import "MBProgressHUD.h"
 
+#define _API_KEY @"YOUR_API_KEY"
+#define _API_SECRET @"YOUR_API_SECRET"
+
 @implementation ViewController
 
 - (void)viewDidLoad
@@ -18,10 +21,10 @@
     imagePicker = [[UIImagePickerController alloc] init];
 
     // initialize
-    NSString *API_KEY = @"YOUR_API_KEY";
-    NSString *API_SECRET = @"YOUR_API_SECRET";
+    NSString *API_KEY = _API_KEY;
+    NSString *API_SECRET = _API_SECRET;
 
-    [FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
+    [FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET andRegion:APIServerRegionCN];
     
     // turn on the debug mode
     [FaceppAPI setDebugMode:TRUE];
@@ -130,7 +133,6 @@
         case UIImageOrientationLeftMirrored:
         case UIImageOrientationRight:
         case UIImageOrientationRightMirrored:
-            // Grr...
             CGContextDrawImage(ctx, CGRectMake(0,0,aImage.size.height,aImage.size.width), aImage.CGImage);
             break;
             
@@ -147,11 +149,11 @@
     return img;
 }
 
-// Use facepp SDK to detect faces 
+// Use facepp SDK to detect faces
 -(void) detectWithImage: (UIImage*) image {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    FaceppResult *result = [[FaceppAPI detection] detectWithURL:nil imageData:UIImageJPEGRepresentation(image, 1)];
     
+    FaceppResult *result = [[FaceppAPI detection] detectWithURL:nil orImageData:UIImageJPEGRepresentation(image, 1) mode:FaceppDetectionModeNormal attribute:FaceppDetectionAttributeNone];
     if (result.success) {
         double image_width = [[result content][@"img_width"] doubleValue] *0.01f;
         double image_height = [[result content][@"img_height"] doubleValue] * 0.01f;
@@ -159,15 +161,16 @@
         UIGraphicsBeginImageContext(image.size);
         [image drawAtPoint:CGPointZero];
         CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetRGBFillColor(context, 0, 0, 1.0, 1.0);
         CGContextSetLineWidth(context, image_width * 0.7f);
         
         // draw rectangle in the image
         int face_count = [[result content][@"face"] count];
         for (int i=0; i<face_count; i++) {
-            double width = [[result content][@"face"][i][@"width"] doubleValue];
-            double height = [[result content][@"face"][i][@"height"] doubleValue];
-            CGRect rect = CGRectMake(([[result content][@"face"][i][@"center"][@"x"] doubleValue] - width/2) * image_width,
-                                     ([[result content][@"face"][i][@"center"][@"y"] doubleValue] - height/2) * image_height,
+            double width = [[result content][@"face"][i][@"position"][@"width"] doubleValue];
+            double height = [[result content][@"face"][i][@"position"][@"height"] doubleValue];
+            CGRect rect = CGRectMake(([[result content][@"face"][i][@"position"][@"center"][@"x"] doubleValue] - width/2) * image_width,
+                                     ([[result content][@"face"][i][@"position"][@"center"][@"y"] doubleValue] - height/2) * image_height,
                                      width * image_width,
                                      height * image_height);
             CGContextStrokeRect(context, rect);

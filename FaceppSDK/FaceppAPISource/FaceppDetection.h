@@ -25,9 +25,10 @@ typedef enum FaceppDetectionAttribute {
  *  @param set a not NULL value to use url for detect
  *  @param imageData NULL to use URL for detection, not NULL to use local image data.
  */
--(FaceppResult*) detectWithURL:(NSString*)url imageData:(NSData*)data;
--(FaceppResult*) detectWithURL:(NSString*)url imageData:(NSData*)data mode:(FaceppDetectionMode)mode;
--(FaceppResult*) detectWithURL:(NSString*)url imageData:(NSData*)data mode:(FaceppDetectionMode)mode attribute:(FaceppDetectionAttribute)attribute;
--(FaceppResult*) detectWithURL:(NSString*)url imageData:(NSData*)data mode:(FaceppDetectionMode)mode attribute:(FaceppDetectionAttribute)attribute tag:(NSString*)tag;
+-(FaceppResult*) detectWithURL:(NSString*)url orImageData:(NSData*)data;
+-(FaceppResult*) detectWithURL:(NSString*)url orImageData:(NSData*)data mode:(FaceppDetectionMode)mode;
+-(FaceppResult*) detectWithURL:(NSString*)url orImageData:(NSData*)data mode:(FaceppDetectionMode)mode attribute:(FaceppDetectionAttribute)attribute;
+-(FaceppResult*) detectWithURL:(NSString*)url orImageData:(NSData*)data mode:(FaceppDetectionMode)mode attribute:(FaceppDetectionAttribute)attribute tag:(NSString*)tag;
+-(FaceppResult*) detectWithURL:(NSString*)url orImageData:(NSData*)data mode:(FaceppDetectionMode)mode attribute:(FaceppDetectionAttribute)attribute tag:(NSString*)tag async:(BOOL)async;
 
 @end

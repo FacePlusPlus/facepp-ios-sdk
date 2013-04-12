@@ -16,6 +16,7 @@
 -(FaceppResult*) getGroupList;
 -(FaceppResult*) getImageWithImgId:(NSString*)imageId;
 -(FaceppResult*) getPersonList;
+-(FaceppResult*) getFacesetList;
 -(FaceppResult*) getQuota;
 -(FaceppResult*) getSessionWithSessionId:(NSString*)sessionId;
 

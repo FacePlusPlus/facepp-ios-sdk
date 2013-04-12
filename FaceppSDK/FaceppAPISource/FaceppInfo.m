@@ -31,6 +31,10 @@
     return [FaceppClient requestWithParameters:@"info/get_person_list" :nil];
 }
 
+-(FaceppResult*) getFacesetList {
+    return [FaceppClient requestWithParameters:@"info/get_faceset_list" :nil];
+}
+
 -(FaceppResult*) getQuota {
     return [FaceppClient requestWithParameters:@"info/get_quota" :nil];
 }

@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 
 #import "FaceppResult.h"
+#import "FaceppAPI.h"
 
 @interface FaceppClient : NSObject
 
 +(void) setDebugMode:(BOOL) on;
-+(void) initializeWithApiKey: (NSString*)apiKey apiSecret:(NSString*) apiSecret;
++(void) initializeWithApiKey: (NSString*)apiKey apiSecret:(NSString*) apiSecret region:(APIServerRegion)region;
 
 +(FaceppResult*) requestWithParameters: (NSString*)method: (NSArray*)params;
 +(FaceppResult*) requestWithImage: (NSString*)method: (NSData*)imageData: (NSArray*)params;

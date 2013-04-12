@@ -21,11 +21,11 @@
 }
 
 - (NSString*) getPhotoURL:(int) index {
-    return [NSString stringWithFormat:@"http://face-plus-plus.com/static/img/demo/%d.jpg", index+1];
+    return [NSString stringWithFormat:@"http://cn.faceplusplus.com/wp-content/themes/faceplusplus.zh/assets/img/demo/%d.jpg", index+1];
 }
 
 - (NSString*) getTraningURL:(int) index {
-    return [NSString stringWithFormat:@"http://face-plus-plus.com/static/img/demo/%d.jpg", index+1];
+    return [NSString stringWithFormat:@"http://cn.faceplusplus.com/wp-content/themes/faceplusplus.zh/assets/img/demo/%d.jpg", index+1];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -37,13 +37,14 @@
     NSString *API_SECRET = _API_SECRET;
     
     // initialize
-    [FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
+    [FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET andRegion:APIServerRegionCN];
     
     // turn on the debug mode
     [FaceppAPI setDebugMode:TRUE];
     
     NSArray *personNames = [NSArray arrayWithObjects:@"Alice", @"Bob", @"Ethan", nil];
     NSMutableArray *personIds = [NSMutableArray arrayWithCapacity:10];
+    NSMutableArray *faceIds = [NSMutableArray arrayWithCapacity:10];
     NSString *face_id = nil;
     
     // DETECTION
@@ -52,12 +53,12 @@
         [[FaceppAPI person] deleteWithPersonName:[personNames objectAtIndex:i] orPersonId:nil];
         // create new person, detect faces from person's image_url
         FaceppResult *detectLocalFileResult = [[FaceppAPI detection] detectWithURL: [self getTraningURL:i]
-                                                                         imageData: nil];
+                                                                         orImageData: nil];
         if ([detectLocalFileResult success]) {
             int face_count = [[detectLocalFileResult content][@"face"] count];
             if (face_count > 0) {
                 face_id = [detectLocalFileResult content][@"face"][0][@"face_id"];
-                
+                [faceIds addObject:face_id];
                 FaceppResult *personResult = [[FaceppAPI person] createWithPersonName: [personNames objectAtIndex:i]
                                                                             andFaceId: [NSArray arrayWithObject:face_id]
                                                                                andTag: nil
@@ -75,7 +76,7 @@
         } 
     }
     
-    // generate a new group, add people into group
+    // create a new group, add persons into group
     NSString *groupName = @"sampe_group";
     [[FaceppAPI group] deleteWithGroupName: groupName
                                  orGroupId: nil];
@@ -85,23 +86,32 @@
                               orPersonName: nil];
     
     // generate training model for group
-    [[FaceppAPI recognition] trainSynchronouslyWithGroupId: nil
-                                               orGroupName: groupName
-                                                   andType: FaceppRecognitionTrainTypeRecognize
-                                           refreshDuration: 1.0f
-                                                   timeout: 10.0f];
+    [[FaceppAPI train] trainSynchronouslyWithId:nil
+                                         orName:groupName
+                                        andType:FaceppTrainIdentify
+                                refreshDuration:1.0f
+                                        timeout:10.0f];
     
     // recognize
-    [[FaceppAPI recognition] recognizeWithGroupId: nil
-                                      orGroupName: groupName
-                                           andURL: [self getPhotoURL:0]
-                                      orImageData: nil
-                                      orKeyFaceId: nil];
+    [[FaceppAPI recognition] identifyWithGroupId:nil
+                                     orGroupName:groupName
+                                          andURL:[self getPhotoURL:0]
+                                     orImageData:nil
+                                     orKeyFaceId:nil
+                                           async:NO];
+
+    // create a new faceset, add faces into faceset
+    NSString* facesetName = @"sample_faceset";
+    [[FaceppAPI faceset] deleteWithFacesetName:facesetName orFacesetId:nil];
+    [[FaceppAPI faceset] createWithFacesetName:facesetName andFaceId:faceIds andTag:nil];
+    [[FaceppAPI train] trainSynchronouslyWithId:nil
+                                         orName:facesetName
+                                        andType:FaceppTrainSearch
+                                refreshDuration:1.0f
+                                        timeout:10.0f];
+    
     // search
-    [[FaceppAPI recognition] searchWithKeyFaceId:face_id andGroupId:nil orGroupName:groupName];
-    
-    
-    
+    [[FaceppAPI recognition] searchWithKeyFaceId:face_id andFacesetId:nil orFacesetName:facesetName];
     
     
     //////////////////////////////////////////////////////////
@@ -110,7 +120,6 @@
     // double face_width = [[detectLocalFileResult content][@"face"][0][@"width"] doubleValue];
     // double img_width = [[detectLocalFileResult content][@"img_width"] doubleValue];
     // double face_width_in_pixel = face_width * img_width * 0.01f;
-    
     
     
     

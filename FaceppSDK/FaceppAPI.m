@@ -14,6 +14,9 @@ static FaceppRecognition* recognitionSharedInstance = nil;
 static FaceppPerson* personSharedInstance = nil;
 static FaceppGroup* groupSharedInstance = nil;
 static FaceppInfo* infoSharedInstance = nil;
+static FaceppTrainer* trainSharedInstance = nil;
+static FaceppFaceset* facesetSharedInstance = nil;
+static FaceppGrouping* groupingSharedInstance = nil;
 
 @implementation FaceppAPI
 
@@ -21,8 +24,8 @@ static FaceppInfo* infoSharedInstance = nil;
     [FaceppClient setDebugMode:on];
 }
 
-+(void)initWithApiKey:(NSString*) apiKey andApiSecret:(NSString*) apiSecret {
-    [FaceppClient initializeWithApiKey:apiKey apiSecret:apiSecret];
++(void)initWithApiKey:(NSString*) apiKey andApiSecret:(NSString*) apiSecret andRegion:(APIServerRegion)region{
+    [FaceppClient initializeWithApiKey:apiKey apiSecret:apiSecret region:region];
 }
 
 +(FaceppDetection*) detection {
@@ -49,10 +52,28 @@ static FaceppInfo* infoSharedInstance = nil;
     return groupSharedInstance;
 }
 
++(FaceppFaceset*) faceset {
+    if (facesetSharedInstance == nil)
+        facesetSharedInstance = [[FaceppFaceset alloc] init];
+    return facesetSharedInstance;
+}
+
++(FaceppTrainer*) train {
+    if (trainSharedInstance == nil)
+        trainSharedInstance = [[FaceppTrainer alloc] init];
+    return trainSharedInstance;
+}
+
 +(FaceppInfo*) info {
     if (infoSharedInstance == nil)
         infoSharedInstance = [[FaceppInfo alloc] init];
     return infoSharedInstance;
+}
+
++(FaceppGrouping*) grouping {
+    if (groupingSharedInstance == nil)
+        groupingSharedInstance = [[FaceppGrouping alloc] init];
+    return groupingSharedInstance;
 }
 
 @end

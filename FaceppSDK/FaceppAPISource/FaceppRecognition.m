@@ -12,12 +12,17 @@
 
 @implementation FaceppRecognition
 
--(FaceppResult*) compareWithFaceId1:(NSString*)id1 andId2:(NSString*)id2 {
-    return [FaceppClient requestWithParameters:@"recognition/compare" :[NSArray arrayWithObjects:@"face_id1", id1, @"face_id2", id2, nil]];
+-(FaceppResult*) compareWithFaceId1:(NSString*)id1 andId2:(NSString*)id2 async:(BOOL)async{
+    NSMutableArray *params = [NSMutableArray arrayWithObjects:@"face_id1", id1, @"face_id2", id2, nil];
+    if (async) {
+        [params addObject:@"async"];
+        [params addObject:@"true"];
+    }
+    return [FaceppClient requestWithParameters:@"recognition/compare" :params];
 }
 
--(FaceppResult*) recognizeWithGroupId:(NSString*)groupId orGroupName:(NSString*)name andURL:(NSString*)url orImageData:(NSData*)data orKeyFaceId:(NSArray*)keyFaceId {
-    NSMutableArray *params = [NSMutableArray arrayWithCapacity:10];
+-(FaceppResult*) identifyWithGroupId:(NSString*)groupId orGroupName:(NSString*)name andURL:(NSString*)url orImageData:(NSData*)data orKeyFaceId:(NSArray*)keyFaceId async:(BOOL)async {
+    NSMutableArray *params = [NSMutableArray arrayWithCapacity:16];
     if (groupId != nil) {
         [params addObject:@"group_id"];
         [params addObject:groupId];
@@ -30,6 +35,10 @@
         [params addObject:@"url"];
         [params addObject:url];
     }
+    if (async) {
+        [params addObject:@"async"];
+        [params addObject:@"true"];
+    }
     if ((keyFaceId != nil) && ([keyFaceId count]>0)) {
         [params addObject:@"key_face_id"];
         NSMutableString *faces = [NSMutableString stringWithString:[keyFaceId objectAtIndex:0]];
@@ -40,115 +49,42 @@
     
     // request
     if (data != NULL)
-        return [FaceppClient requestWithImage:@"recognition/recognize" :data :params];
+        return [FaceppClient requestWithImage:@"recognition/identify" :data :params];
     else
-        return [FaceppClient requestWithParameters:@"recognition/recognize" :params];
+        return [FaceppClient requestWithParameters:@"recognition/identify" :params];
 }
 
--(FaceppResult*) searchWithKeyFaceId:(NSString*) keyFaceId andGroupId:(NSString*)groupId orGroupName:(NSString*)groupName {
-    return [self searchWithKeyFaceId:keyFaceId andGroupId:groupId orGroupName:groupName andCount:nil];
+-(FaceppResult*) searchWithKeyFaceId:(NSString*) keyFaceId andFacesetId:(NSString*)facesetId orFacesetName:(NSString*)facesetName {
+    return [self searchWithKeyFaceId:keyFaceId andFacesetId:facesetId orFacesetName:facesetName andCount:nil async:NO];
 }
 
--(FaceppResult*) searchWithKeyFaceId:(NSString*) keyFaceId andGroupId:(NSString*)groupId orGroupName:(NSString*)groupName andCount:(NSNumber*)count {
-    NSMutableArray *params = [NSMutableArray arrayWithCapacity:10];
+-(FaceppResult*) searchWithKeyFaceId:(NSString*) keyFaceId andFacesetId:(NSString*)facesetId orFacesetName:(NSString*)facesetName andCount:(NSNumber*)count async:(BOOL)async{
+    NSMutableArray *params = [NSMutableArray arrayWithCapacity:16];
     if (keyFaceId != nil) {
         [params addObject:@"key_face_id"];
         [params addObject:keyFaceId];
     }
-    if (groupId != nil) {
-        [params addObject:@"group_id"];
-        [params addObject:groupId];
+    if (facesetId != nil) {
+        [params addObject:@"faceset_id"];
+        [params addObject:facesetId];
     }
-    if (groupName != nil) {
-        [params addObject:@"group_name"];
-        [params addObject:groupName];
+    if (facesetName != nil) {
+        [params addObject:@"faceset_name"];
+        [params addObject:facesetName];
     }
     if (count != nil) {
         [params addObject:@"count"];
         [params addObject:count];
     }
+    if (async) {
+        [params addObject:@"async"];
+        [params addObject:@"true"];
+    }
+
     return [FaceppClient requestWithParameters:@"recognition/search" :params];
 }
 
--(FaceppResult*) trainAsynchronouslyWithGroupId:(NSString*) groupId orGroupName:(NSString*)groupName andType:(FaceppRecognitionTrainType)type {
-    NSString *typeStr = nil;
-    switch (type) {
-        case FaceppRecognitionTrainTypeAll:
-            typeStr = @"all";
-            break;
-        case FaceppRecognitionTrainTypeRecognize:
-            typeStr = @"recognize";
-            break;
-        case FaceppRecognitionTrainTypeSearch:
-            typeStr = @"search";
-            break;
-        default:
-            typeStr = @"unknown";
-            break;
-    }
-    NSMutableArray *params = [NSMutableArray arrayWithObjects:@"type", typeStr, nil];
-    if (groupId != nil) {
-        [params addObject:@"group_id"];
-        [params addObject:groupId];
-    }
-    if (groupName != nil) {
-        [params addObject:@"group_name"];
-        [params addObject:groupName];
-    }
-    return [FaceppClient requestWithParameters:@"recognition/train" :params];
-}
-
--(FaceppResult*) trainSynchronouslyWithGroupId:(NSString*) groupId orGroupName:(NSString*)groupName andType:(FaceppRecognitionTrainType)type refreshDuration:(NSTimeInterval)interval timeout:(NSTimeInterval)timeout{
-    NSString *typeStr = nil;
-    switch (type) {
-        case FaceppRecognitionTrainTypeAll:
-            typeStr = @"all";
-            break;
-        case FaceppRecognitionTrainTypeRecognize:
-            typeStr = @"recognize";
-            break;
-        case FaceppRecognitionTrainTypeSearch:
-            typeStr = @"search";
-            break;
-        default:
-            typeStr = @"unknown";
-            break;
-    }
-    NSMutableArray *params = [NSMutableArray arrayWithObjects:@"type", typeStr, nil];
-    if (groupId != nil) {
-        [params addObject:@"group_id"];
-        [params addObject:groupId];
-    }
-    if (groupName != nil) {
-        [params addObject:@"group_name"];
-        [params addObject:groupName];
-    }
-    
-    FaceppResult *sessionResult = [FaceppClient requestWithParameters:@"recognition/train" :params];
-    if (![sessionResult success])
-        return sessionResult;
-    
-    NSString *sessionId = [sessionResult content][@"session_id"];
-    bool flag = false;
-    NSDate *startTime = [NSDate date];
-    interval = MAX(interval, 1);
-    if (timeout < 1e-6)
-        timeout = MAXFLOAT;
-    
-    while ((!flag) && ([[NSDate date] timeIntervalSinceDate:startTime] < timeout)) {
-        FaceppResult *result = [[FaceppAPI info] getSessionWithSessionId:sessionId];
-        if ([result success]) {
-            if ([[result content][@"result"][@"success"] boolValue] == true)
-                return result;
-        } else {
-            return result;
-        }
-        [NSThread sleepForTimeInterval:interval];
-    }
-    return [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:@"trainSynchronously method timeout" andHttpStatusCode:0 andErrorCode:0]];
-}
-
--(FaceppResult*) verifyWithFaceId:(NSString*) faceId andPersonId:(NSString*)personId orPersonName:(NSString*)personName {
+-(FaceppResult*) verifyWithFaceId:(NSString*) faceId andPersonId:(NSString*)personId orPersonName:(NSString*)personName async:(BOOL)async{
     NSMutableArray *params = [NSMutableArray arrayWithObjects:@"face_id", faceId, nil];
     if (personId != nil) {
         [params addObject:@"person_id"];
@@ -158,6 +94,11 @@
         [params addObject:@"person_name"];
         [params addObject:personName];
     }
+    if (async) {
+        [params addObject:@"async"];
+        [params addObject:@"true"];
+    }
+
     return [FaceppClient requestWithParameters:@"recognition/verify" :params];
 }
 

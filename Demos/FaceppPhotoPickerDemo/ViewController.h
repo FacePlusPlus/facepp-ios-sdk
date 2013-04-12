@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "FaceppAPI.h"
 
+#define USE_FACEPP_OFFLINE_DETECTION
+
 @interface ViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     IBOutlet UIImageView *imageView;
     IBOutlet UIButton *button;

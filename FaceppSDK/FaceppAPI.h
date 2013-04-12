@@ -12,21 +12,29 @@
 #import "FaceppInfo.h"
 #import "FaceppPerson.h"
 #import "FaceppRecognition.h"
+#import "FaceppTrainer.h"
+#import "FaceppFaceset.h"
+#import "FaceppGrouping.h"
+
+typedef enum APIServerRegion{
+    APIServerRegionCN,
+    APIServerRegionUS
+} APIServerRegion;
 
 @interface FaceppAPI : NSObject
 
 /*! 
- * @brief Initialize FacePlusPlus client with your API_KEY and API_SECRET
+ * @brief Initialize FacePlusPlus client with your API_KEY and API_SECRET, and specific your region
  * @code
  *  - (void)applicationDidFinishLaunching:(UIApplication *)application
  {
  // Facepp startup methods
- [FaceppAPI initWithApiKey: @"YOUR_API_KEY" andApiSecret:@"YOUR_API_SECRET"];
+ [FaceppAPI initWithApiKey: @"YOUR_API_KEY" andApiSecret:@"YOUR_API_SECRET" andRegion:APIServerRegionXX];
  // ....
  }
  * @endcode
  */
-+(void)initWithApiKey:(NSString*) apiKey andApiSecret:(NSString*) apiSecret;
++(void)initWithApiKey:(NSString*) apiKey andApiSecret:(NSString*) apiSecret andRegion:(APIServerRegion) region;
 
 /*!
  * @brief Indicate whether debug message will be printed.
@@ -39,9 +47,19 @@
 +(FaceppDetection*) detection;
 
 /*!
+ * @brief The object which contains all methods about train
+ */
++(FaceppTrainer*) train;
+
+/*!
  * @brief The object which contains all methods about recognition
  */
 +(FaceppRecognition*) recognition;
+
+/*!
+ * @brief The object which contains all methods about faceset
+ */
++(FaceppFaceset*) faceset;
 
 /*!
  * @brief The object which contains all methods about person
@@ -57,5 +75,10 @@
  * @brief The object which contains all methods about info
  */
 +(FaceppInfo*) info;
+
+/*!
+ * @brief The object which contains all methods about info
+ */
++(FaceppGrouping*) grouping;
 
 @end
