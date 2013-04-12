@@ -427,8 +427,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C72222271666371700D74087 /* FaceppSDK+Demo */,
 				C7CE8D61166F4A25003E07C5 /* FaceppPhotoPickerDemo */,
+				C72222271666371700D74087 /* FaceppSDK+Demo */,
 			);
 		};
 /* End PBXProject section */
