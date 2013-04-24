@@ -2,7 +2,6 @@
 * Compatible with 2.0 API
 * Modify the initialize function to change region between CN and US 
 	- Example: `[FaceppAPI initWithApiKey: @"YOUR_KEY" andApiSecret: @"YOUR_SECRET" andRegion: API_SERVER_REGION]`
-* Remove FaceppSDK_ARC (**deprecated**)
 
 ------------------------------------------------------
 ##To integrate FacePlusPlus SDK into your iOS project
