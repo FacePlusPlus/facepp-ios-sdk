@@ -48,7 +48,7 @@
                               delegate:nil
                               cancelButtonTitle:@"OK!"
                               otherButtonTitles:nil];
-        [alert show];
+        [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
         [alert release];
 
     }
@@ -68,7 +68,7 @@
                               delegate:nil
                               cancelButtonTitle:@"OK!"
                               otherButtonTitles:nil];
-        [alert show];
+        [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
         [alert release];
     }
 }
@@ -194,7 +194,7 @@
                               delegate:nil
                               cancelButtonTitle:@"OK!"
                               otherButtonTitles:nil];
-        [alert show];
+        [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:YES];
         [alert release];
     }
     [image release];
