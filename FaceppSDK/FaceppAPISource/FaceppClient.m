@@ -74,7 +74,7 @@ static NSString *SERVER_ADDRESS = CN_SERVER_ADDRESS;
     NSMutableString *urlString = [NSMutableString stringWithFormat:@"%@%@?api_key=%@&api_secret=%@", SERVER_ADDRESS, method, FACEPP_API_KEY, FACEPP_API_SECRET];
     if (params != NULL) {
         assert((params.count%2)==0);
-        for (int i=0; i<params.count; i+=2) {
+        for (size_t i=0; i<params.count; i+=2) {
             [urlString appendFormat:@"&%@=%@", [params objectAtIndex:i], [params objectAtIndex:i+1]];
         }
     }

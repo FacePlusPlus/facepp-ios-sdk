@@ -28,19 +28,34 @@
 }
 
 -(FaceppResult*) detectWithURL:(NSString*)url orImageData:(NSData*)data mode:(FaceppDetectionMode)mode attribute:(FaceppDetectionAttribute)attribute tag:(NSString*)tag async:(BOOL)async {
-    NSMutableArray *params = [NSMutableArray arrayWithCapacity:10];
+    return [self detectWithURL:url orImageData:data mode:mode attribute:attribute tag:tag async:async others:nil];
+}
+
+-(FaceppResult*) detectWithURL:(NSString*)url orImageData:(NSData*)data mode:(FaceppDetectionMode)mode attribute:(FaceppDetectionAttribute)attribute tag:(NSString*)tag async:(BOOL)async others:(NSArray*) others {
+    NSMutableArray *params = [NSMutableArray arrayWithCapacity:20];
     if (url != nil) {
         [params addObject:@"url"];
         [params addObject:url];
     }
-    if (mode != FaceppDetectionModeNormal) {
+    if (mode != FaceppDetectionModeDefault) {
         [params addObject:@"mode"];
-        [params addObject:@"oneface"];
+        if (mode == FaceppDetectionModeNormal)
+            [params addObject:@"normal"];
+        else
+            [params addObject:@"oneface"];
     }
-    if (attribute != FaceppDetectionAttributeAll) {
-        [params addObject:@"attribute"];
-        [params addObject:@"none"];
-    }
+    NSMutableString *attr = [NSMutableString string];
+    attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributeAge andAttributeName:@"age"];
+    attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributeRace andAttributeName:@"race"];
+    attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributeGender andAttributeName:@"gender"];
+    attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributeSmiling andAttributeName:@"smiling"];
+    attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributePose andAttributeName:@"pose"];
+    attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributeLandmark andAttributeName:@"landmark"];
+    attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributeGlass andAttributeName:@"glass"];
+    if (attr.length <= 0)
+        attr = [NSMutableString stringWithString:@"none"];
+    [params addObject:@"attribute"];
+    [params addObject:attr];
     if (tag != nil) {
         [params addObject:@"tag"];
         [params addObject:tag];
@@ -49,12 +64,33 @@
         [params addObject:@"async"];
         [params addObject:@"true"];
     }
+    if (others != nil) {
+        size_t count = 2;
+        while (count <= [others count]) {
+            if (([[[others objectAtIndex:count-2] class] isSubclassOfClass:[NSString class]]) &&
+                ([[[others objectAtIndex:count-1] class] isSubclassOfClass:[NSString class]])) {
+                [params addObject:[others objectAtIndex:count-2]];
+                [params addObject:[others objectAtIndex:count-1]];
+            }
+            count += 2;
+        }
+    }
     
     // request
     if (data != NULL)
         return [FaceppClient requestWithImage:@"detection/detect" :data :params];
     else
         return [FaceppClient requestWithParameters:@"detection/detect" :params];
+}
+
+-(NSMutableString*) appendAttributeString: (NSMutableString*)orig andParam: (FaceppDetectionAttribute)param andCheckItem: (FaceppDetectionAttribute)checkItem andAttributeName: (NSString*)attrName {
+    if ((param & checkItem) > 0) {
+        if ([orig length] > 0)
+            [orig appendFormat:@",%@", attrName];
+        else
+            [orig appendString:attrName];
+    }
+    return orig;
 }
 
 @end

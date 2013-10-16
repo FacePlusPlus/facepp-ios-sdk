@@ -153,6 +153,7 @@
 		C7CE8D79166F4A25003E07C5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C7CE8D7A166F4A25003E07C5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C7CE8D7D166F4A25003E07C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		C7E2B33117F959030084EC89 /* APIKey+APISecret.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APIKey+APISecret.h"; sourceTree = SOURCE_ROOT; };
 		C7E5A15B1671D6E300CAA939 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		C7E5A15C1671D6E300CAA939 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C7EB0A0F166F83D0000CF13D /* powered_by.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powered_by.png; sourceTree = "<group>"; };
@@ -217,6 +218,7 @@
 		C72222321666371700D74087 /* FaceppDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C7E2B33117F959030084EC89 /* APIKey+APISecret.h */,
 				C722223B1666371700D74087 /* AppDelegate.h */,
 				C722223C1666371700D74087 /* AppDelegate.m */,
 				C72222331666371700D74087 /* Supporting Files */,
@@ -610,10 +612,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FaceppDemo/FaceppSDK+Demo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/FaceppPhotoPickerDemo/FaceppPhotoPickerDemo-Info.plist";
 				PRODUCT_NAME = "FaceppSDK+Demo";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -622,12 +626,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wenbin Tang (3N629HASXJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FaceppDemo/FaceppSDK+Demo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/FaceppPhotoPickerDemo/FaceppPhotoPickerDemo-Info.plist";
 				PRODUCT_NAME = "FaceppSDK+Demo";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6517FA2C-C7DC-43C9-9C08-E630EDE00571";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D2DCE470-C17B-4370-A0C5-4D44BC1735CA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

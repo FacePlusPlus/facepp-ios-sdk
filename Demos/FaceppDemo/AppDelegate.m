@@ -8,9 +8,7 @@
 
 #import "AppDelegate.h"
 #import "FaceppAPI.h"
-
-#define _API_KEY @"YOUR_API_KEY"
-#define _API_SECRET @"YOUR_API_SECRET"
+#import "../APIKey+APISecret.h"
 
 @implementation AppDelegate
 

@@ -1,3 +1,6 @@
+##2013.10.16 update
+* Compatible with new API(new attributes, landmarks etc.) 
+
 ##2.0 update
 * Compatible with 2.0 API
 * Modify the initialize function to change region between CN and US 
