@@ -8,7 +8,7 @@
 
 #import "FaceppResult.h"
 
-typedef enum FaceppDetectionMode{
+typedef enum {
     FaceppDetectionModeDefault,
     FaceppDetectionModeNormal,
     FaceppDetectionModeOneFace
@@ -23,10 +23,14 @@ enum {
     FaceppDetectionAttributeSmiling = 1 << 3,
     FaceppDetectionAttributePose = 1 << 4,
     FaceppDetectionAttributeGlass = 1 << 5,
-    FaceppDetectionAttributeLandmark = 1 << 6,
     FaceppDetectionAttributeAll = FaceppDetectionAttributeAge | FaceppDetectionAttributeRace | FaceppDetectionAttributeGender | FaceppDetectionAttributeSmiling
 };
 typedef int FaceppDetectionAttribute;
+
+typedef enum {
+    FaceppLandmark83P = 0,
+    FaceppLandmark25P = 1
+} FaceppLandmarkType;
 
 @interface FaceppDetection : NSObject
 
@@ -41,5 +45,6 @@ typedef int FaceppDetectionAttribute;
 -(FaceppResult*) detectWithURL:(NSString*)url orImageData:(NSData*)data mode:(FaceppDetectionMode)mode attribute:(FaceppDetectionAttribute)attribute tag:(NSString*)tag;
 -(FaceppResult*) detectWithURL:(NSString*)url orImageData:(NSData*)data mode:(FaceppDetectionMode)mode attribute:(FaceppDetectionAttribute)attribute tag:(NSString*)tag async:(BOOL)async;
 -(FaceppResult*) detectWithURL:(NSString*)url orImageData:(NSData*)data mode:(FaceppDetectionMode)mode attribute:(FaceppDetectionAttribute)attribute tag:(NSString*)tag async:(BOOL)async others:(NSArray*) others;
+-(FaceppResult*) landmarkWithFaceId: (NSString*) face andType:(FaceppLandmarkType) type;
 
 @end

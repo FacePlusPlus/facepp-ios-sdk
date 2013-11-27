@@ -50,7 +50,6 @@
     attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributeGender andAttributeName:@"gender"];
     attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributeSmiling andAttributeName:@"smiling"];
     attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributePose andAttributeName:@"pose"];
-    attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributeLandmark andAttributeName:@"landmark"];
     attr = [self appendAttributeString:attr andParam:attribute andCheckItem:FaceppDetectionAttributeGlass andAttributeName:@"glass"];
     if (attr.length <= 0)
         attr = [NSMutableString stringWithString:@"none"];
@@ -91,6 +90,17 @@
             [orig appendString:attrName];
     }
     return orig;
+}
+
+-(FaceppResult*) landmarkWithFaceId: (NSString*) face andType:(FaceppLandmarkType) type {
+    NSMutableArray *params = [NSMutableArray arrayWithCapacity:10];
+    [params addObject: @"face_id"];
+    [params addObject: face];
+    if (type == FaceppLandmark25P) {
+        [params addObject: @"type"];
+        [params addObject: @"25p"];
+    }
+    return [FaceppClient requestWithParameters:@"detection/landmark" :params];
 }
 
 @end

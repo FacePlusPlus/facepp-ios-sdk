@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AC34F322-4C2E-486D-9701-C526E826A56A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FaceppSDK+Demo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>37BA5E25-72F2-4371-BAAA-61DE64E1769E</key>
+		<string>https://github.com/FacePlusPlus/facepp-ios-sdk.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Demos/FaceppSDK+Demo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>37BA5E25-72F2-4371-BAAA-61DE64E1769E</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/FacePlusPlus/facepp-ios-sdk.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>37BA5E25-72F2-4371-BAAA-61DE64E1769E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>37BA5E25-72F2-4371-BAAA-61DE64E1769E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>facepp-ios-sdk</string>
+		</dict>
+	</array>
+</dict>
+</plist>
