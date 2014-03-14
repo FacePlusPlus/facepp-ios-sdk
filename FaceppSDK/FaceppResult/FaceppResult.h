@@ -29,7 +29,7 @@
 
 
 
--(id) initWithSuccess: (BOOL) success: (FaceppError*) error;
-+(id) resultWithSuccess: (BOOL) success: (FaceppError*) error;
+-(id) initWithSuccess: (BOOL) success withError: (FaceppError*) error;
++(id) resultWithSuccess: (BOOL) success withError: (FaceppError*) error;
 
 @end

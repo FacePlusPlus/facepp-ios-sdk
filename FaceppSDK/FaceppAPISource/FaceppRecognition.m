@@ -18,7 +18,7 @@
         [params addObject:@"async"];
         [params addObject:@"true"];
     }
-    return [FaceppClient requestWithParameters:@"recognition/compare" :params];
+    return [FaceppClient requestWithMethod:@"recognition/compare" params:params];
 }
 
 -(FaceppResult*) identifyWithGroupId:(NSString*)groupId orGroupName:(NSString*)name andURL:(NSString*)url orImageData:(NSData*)data orKeyFaceId:(NSArray*)keyFaceId async:(BOOL)async {
@@ -49,9 +49,9 @@
     
     // request
     if (data != NULL)
-        return [FaceppClient requestWithImage:@"recognition/identify" :data :params];
+        return [FaceppClient requestWithMethod:@"recognition/identify" image:data params:params];
     else
-        return [FaceppClient requestWithParameters:@"recognition/identify" :params];
+        return [FaceppClient requestWithMethod:@"recognition/identify" params:params];
 }
 
 -(FaceppResult*) searchWithKeyFaceId:(NSString*) keyFaceId andFacesetId:(NSString*)facesetId orFacesetName:(NSString*)facesetName {
@@ -81,7 +81,7 @@
         [params addObject:@"true"];
     }
 
-    return [FaceppClient requestWithParameters:@"recognition/search" :params];
+    return [FaceppClient requestWithMethod:@"recognition/search" params:params];
 }
 
 -(FaceppResult*) verifyWithFaceId:(NSString*) faceId andPersonId:(NSString*)personId orPersonName:(NSString*)personName async:(BOOL)async{
@@ -99,7 +99,7 @@
         [params addObject:@"true"];
     }
 
-    return [FaceppClient requestWithParameters:@"recognition/verify" :params];
+    return [FaceppClient requestWithMethod:@"recognition/verify" params:params];
 }
 
 @end

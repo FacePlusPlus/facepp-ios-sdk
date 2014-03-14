@@ -39,7 +39,7 @@
         [params addObject:[NSString stringWithFormat:@"%@_name", prefix]];
         [params addObject:objName];
     }
-    return [FaceppClient requestWithParameters:[NSString stringWithFormat:@"train/%@", typeStr] :params];
+    return [FaceppClient requestWithMethod:[NSString stringWithFormat:@"train/%@", typeStr] params:params];
 }
 
 -(FaceppResult*) trainSynchronouslyWithId:(NSString *)objId orName:(NSString *)objName andType:(FaceppTrainType)type refreshDuration:(NSTimeInterval)interval timeout:(NSTimeInterval)timeout {
@@ -71,7 +71,7 @@
         [params addObject:objName];
     }
 
-    FaceppResult *sessionResult = [FaceppClient requestWithParameters:[NSString stringWithFormat:@"train/%@", typeStr] :params];
+    FaceppResult *sessionResult = [FaceppClient requestWithMethod:[NSString stringWithFormat:@"train/%@", typeStr] params:params];
     if (![sessionResult success])
         return sessionResult;
     
@@ -92,7 +92,7 @@
         }
         [NSThread sleepForTimeInterval:interval];
     }
-    return [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:@"trainSynchronously method timeout" andHttpStatusCode:0 andErrorCode:0]];
+    return [FaceppResult resultWithSuccess:false withError:[FaceppError errorWithErrorMsg:@"trainSynchronously method timeout" andHttpStatusCode:0 andErrorCode:0]];
 }
 
 @end

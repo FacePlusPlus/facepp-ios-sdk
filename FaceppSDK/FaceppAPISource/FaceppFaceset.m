@@ -28,11 +28,11 @@
         [params addObject:@"faceset_name"];
         [params addObject:facesetName];
     }
-    return [FaceppClient requestWithParameters:@"faceset/add_face" :params];
+    return [FaceppClient requestWithMethod:@"faceset/add_face" params:params];
 }
 
 -(FaceppResult*) create {
-    return [FaceppClient requestWithParameters:@"faceset/create" :nil];
+    return [FaceppClient requestWithMethod:@"faceset/create" params:nil];
 }
 
 -(FaceppResult*) createWithFacesetName:(NSString*)facesetName andFaceId:(NSArray*)faceId andTag:(NSString*)tag {
@@ -52,7 +52,7 @@
             [faces appendFormat:@",%@", [faceId objectAtIndex:i]];
         [params addObject:faces];
     }
-    return [FaceppClient requestWithParameters:@"faceset/create" :params];
+    return [FaceppClient requestWithMethod:@"faceset/create" params:params];
 }
 
 -(FaceppResult*) deleteWithFacesetName:(NSString*)facesetName orFacesetId:(NSString*)facesetId {
@@ -65,7 +65,7 @@
         [params addObject:@"faceset_name"];
         [params addObject:facesetName];
     }
-    return [FaceppClient requestWithParameters:@"faceset/delete" :params];
+    return [FaceppClient requestWithMethod:@"faceset/delete" params:params];
 }
 
 -(FaceppResult*) getInfoWithFacesetName:(NSString*)facesetName orFacesetId:(NSString*)facesetId {
@@ -78,7 +78,7 @@
         [params addObject:@"faceset_name"];
         [params addObject:facesetName];
     }
-    return [FaceppClient requestWithParameters:@"faceset/get_info" :params];
+    return [FaceppClient requestWithMethod:@"faceset/get_info" params:params];
 }
 
 -(FaceppResult*) removeAllFaceWithFacesetName:(NSString *)facesetName orFacesetId:(NSString *)facesetId {
@@ -102,7 +102,7 @@
             [faces appendFormat:@",%@", [faceId objectAtIndex:i]];
         [params addObject:faces];
     }
-    return [FaceppClient requestWithParameters:@"faceset/remove_face" :params];
+    return [FaceppClient requestWithMethod:@"faceset/remove_face" params:params];
     
 }
 
@@ -124,7 +124,7 @@
         [params addObject:@"tag"];
         [params addObject:tag];
     }
-    return [FaceppClient requestWithParameters:@"faceset/set_info" :params];
+    return [FaceppClient requestWithMethod:@"faceset/set_info" params:params];
 }
 
 @end

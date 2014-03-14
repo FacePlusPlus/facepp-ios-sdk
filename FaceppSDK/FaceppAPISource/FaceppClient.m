@@ -68,7 +68,7 @@ static NSString *SERVER_ADDRESS = CN_SERVER_ADDRESS;
     return result;
 }
 
-+(NSString*) generateRequestUrlPrefix: (NSString*) method: (NSArray*) params {
++(NSString*) generateRequestUrlPrefix: (NSString*) method params: (NSArray*) params {
     assert(method != NULL);
     
     NSMutableString *urlString = [NSMutableString stringWithFormat:@"%@%@?api_key=%@&api_secret=%@", SERVER_ADDRESS, method, FACEPP_API_KEY, FACEPP_API_SECRET];
@@ -81,9 +81,9 @@ static NSString *SERVER_ADDRESS = CN_SERVER_ADDRESS;
     return urlString;
 }
 
-+(FaceppResult*) requestWithParameters: (NSString*) method: (NSArray*) params {
++(FaceppResult*) requestWithMethod: (NSString*) method params: (NSArray*) params {
     if (!initilized)
-        return [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:NOT_INIT_ERROR_MSG andHttpStatusCode:0 andErrorCode:0]];
+        return [FaceppResult resultWithSuccess:false withError:[FaceppError errorWithErrorMsg:NOT_INIT_ERROR_MSG andHttpStatusCode:0 andErrorCode:0]];
     
     NSError *error = nil;
     NSInteger statusCode = 0;
@@ -91,7 +91,7 @@ static NSString *SERVER_ADDRESS = CN_SERVER_ADDRESS;
     // create request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
     
-    NSString *urlString = [FaceppClient generateRequestUrlPrefix: method: params];
+    NSString *urlString = [FaceppClient generateRequestUrlPrefix: method params: params];
     [request setURL: [NSURL URLWithString:urlString]];
     if (debugMode)
         NSLog(@"[FacePlusPlus]request url: \n%@", [request URL]);
@@ -104,9 +104,9 @@ static NSString *SERVER_ADDRESS = CN_SERVER_ADDRESS;
     return [FaceppClient generateResultWithResponseData:responseData error:error httpStatusCode:statusCode];
 }
 
-+(FaceppResult*) requestWithImage: (NSString*)method: (NSData*) imageData: (NSArray*)params {
++(FaceppResult*) requestWithMethod: (NSString*)method image: (NSData*) imageData params: (NSArray*)params {
     if (!initilized)
-        return [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:NOT_INIT_ERROR_MSG andHttpStatusCode:0 andErrorCode:0]];
+        return [FaceppResult resultWithSuccess:false withError:[FaceppError errorWithErrorMsg:NOT_INIT_ERROR_MSG andHttpStatusCode:0 andErrorCode:0]];
     
     NSError *error = NULL;
     NSInteger statusCode = 0;
@@ -138,7 +138,7 @@ static NSString *SERVER_ADDRESS = CN_SERVER_ADDRESS;
     // setting the body of the post to the reqeust
     [request setHTTPBody:body];
     
-    NSString *urlString = [FaceppClient generateRequestUrlPrefix:method : params];
+    NSString *urlString = [FaceppClient generateRequestUrlPrefix:method params: params];
     
     // set URL
     [request setURL: [NSURL URLWithString:urlString]];
@@ -160,7 +160,7 @@ static NSString *SERVER_ADDRESS = CN_SERVER_ADDRESS;
     FaceppResult *result;
     
     if (responseData == nil) {
-        result = [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:@"no response data" andHttpStatusCode:httpStatusCode andErrorCode:0]];
+        result = [FaceppResult resultWithSuccess:false withError:[FaceppError errorWithErrorMsg:@"no response data" andHttpStatusCode:httpStatusCode andErrorCode:0]];
         return result;
     }
     
@@ -174,19 +174,19 @@ static NSString *SERVER_ADDRESS = CN_SERVER_ADDRESS;
     }
     if (jsonError != NULL) {
         if (error != NULL) {
-            return [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:[error description] andHttpStatusCode:httpStatusCode andErrorCode:0]];
+            return [FaceppResult resultWithSuccess:false withError:[FaceppError errorWithErrorMsg:[error description] andHttpStatusCode:httpStatusCode andErrorCode:0]];
         } else {
-            return [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:[jsonError description] andHttpStatusCode:httpStatusCode andErrorCode:0]];
+            return [FaceppResult resultWithSuccess:false withError:[FaceppError errorWithErrorMsg:[jsonError description] andHttpStatusCode:httpStatusCode andErrorCode:0]];
         }
     }
     FaceppError *faceppError = [FaceppError checkErrorFromJSONDictionary:dict andHttpStatusCode:httpStatusCode];
     if (faceppError != NULL)
-        return [FaceppResult resultWithSuccess:false :faceppError];
-    result = [FaceppResult resultWithSuccess:true :nil];
+        return [FaceppResult resultWithSuccess:false withError:faceppError];
+    result = [FaceppResult resultWithSuccess:true withError:nil];
     result.content = [dict retain];
     
     if (error != NULL)
-        return [FaceppResult resultWithSuccess:false :[FaceppError errorWithErrorMsg:[error description] andHttpStatusCode:httpStatusCode andErrorCode:0]];
+        return [FaceppResult resultWithSuccess:false withError:[FaceppError errorWithErrorMsg:[error description] andHttpStatusCode:httpStatusCode andErrorCode:0]];
     
     return result;
 }

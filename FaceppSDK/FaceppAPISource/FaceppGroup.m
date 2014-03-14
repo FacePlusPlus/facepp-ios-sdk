@@ -35,7 +35,7 @@
         [params addObject:@"group_name"];
         [params addObject:groupName];
     }
-    return [FaceppClient requestWithParameters:@"group/add_person" :params];
+    return [FaceppClient requestWithMethod:@"group/add_person" params:params];
 
 }
 
@@ -63,7 +63,7 @@
         [params addObject:@"tag"];
         [params addObject:tag];
     }
-    return [FaceppClient requestWithParameters:@"group/create" :params];    
+    return [FaceppClient requestWithMethod:@"group/create" params:params];    
 }
 
 -(FaceppResult*) deleteWithGroupName:(NSString*) groupName orGroupId:(NSString*)groupId {
@@ -76,7 +76,7 @@
         [params addObject:@"group_name"];
         [params addObject:groupName];
     }
-    return [FaceppClient requestWithParameters:@"group/delete" :params];
+    return [FaceppClient requestWithMethod:@"group/delete" params:params];
 }
 
 -(FaceppResult*) getInfoWithGroupName:(NSString*) groupName orGroupId:(NSString*)groupId {
@@ -89,7 +89,7 @@
         [params addObject:@"group_name"];
         [params addObject:groupName];
     }
-    return [FaceppClient requestWithParameters:@"group/get_info" :params];    
+    return [FaceppClient requestWithMethod:@"group/get_info" params:params];    
 }
 
 -(FaceppResult*) getInfoUngroupedPersons {
@@ -120,7 +120,7 @@
             [persons appendFormat:@",%@", [personName objectAtIndex:i]];
         [params addObject:persons];
     }
-    return [FaceppClient requestWithParameters:@"group/remove_person" :params];
+    return [FaceppClient requestWithMethod:@"group/remove_person" params:params];
 }
 
 -(FaceppResult*) removeAllPersonWithGroupName:(NSString*)groupName orGroupId:(NSString*)groupId {
@@ -145,7 +145,7 @@
         [params addObject:@"tag"];
         [params addObject:tag];
     }
-    return [FaceppClient requestWithParameters:@"group/set_info" :params];    
+    return [FaceppClient requestWithMethod:@"group/set_info" params:params];    
 }
 
 @end

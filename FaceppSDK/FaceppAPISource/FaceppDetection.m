@@ -77,9 +77,9 @@
     
     // request
     if (data != NULL)
-        return [FaceppClient requestWithImage:@"detection/detect" :data :params];
+        return [FaceppClient requestWithMethod:@"detection/detect" image:data params:params];
     else
-        return [FaceppClient requestWithParameters:@"detection/detect" :params];
+        return [FaceppClient requestWithMethod:@"detection/detect" params:params];
 }
 
 -(NSMutableString*) appendAttributeString: (NSMutableString*)orig andParam: (FaceppDetectionAttribute)param andCheckItem: (FaceppDetectionAttribute)checkItem andAttributeName: (NSString*)attrName {
@@ -100,7 +100,7 @@
         [params addObject: @"type"];
         [params addObject: @"25p"];
     }
-    return [FaceppClient requestWithParameters:@"detection/landmark" :params];
+    return [FaceppClient requestWithMethod:@"detection/landmark" params:params];
 }
 
 @end

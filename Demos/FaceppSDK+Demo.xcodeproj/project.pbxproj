@@ -627,13 +627,13 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wenbin Tang (3N629HASXJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FaceppDemo/FaceppSDK+Demo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/FaceppPhotoPickerDemo/FaceppPhotoPickerDemo-Info.plist";
 				PRODUCT_NAME = "FaceppSDK+Demo";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D2DCE470-C17B-4370-A0C5-4D44BC1735CA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -655,14 +655,14 @@
 		C7CE8D81166F4A25003E07C5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wenbin Tang (3N629HASXJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FaceppPhotoPickerDemo/FaceppPhotoPickerDemo-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/FaceppPhotoPickerDemo/FaceppPhotoPickerDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6517FA2C-C7DC-43C9-9C08-E630EDE00571";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

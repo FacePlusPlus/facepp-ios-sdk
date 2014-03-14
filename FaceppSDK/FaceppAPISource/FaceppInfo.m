@@ -12,35 +12,35 @@
 @implementation FaceppInfo
 
 -(FaceppResult*) getApp {
-    return [FaceppClient requestWithParameters:@"info/get_app" :nil];
+    return [FaceppClient requestWithMethod:@"info/get_app" params:nil];
 }
 
 -(FaceppResult*) getFaceWithFaceId:(NSString*)faceId {
-    return [FaceppClient requestWithParameters:@"info/get_face" :[NSArray arrayWithObjects:@"face_id", faceId, nil]];
+    return [FaceppClient requestWithMethod:@"info/get_face" params:[NSArray arrayWithObjects:@"face_id", faceId, nil]];
 }
 
 -(FaceppResult*) getGroupList {
-    return [FaceppClient requestWithParameters:@"info/get_group_list" :nil];
+    return [FaceppClient requestWithMethod:@"info/get_group_list" params:nil];
 }
 
 -(FaceppResult*) getImageWithImgId:(NSString*)imageId {
-    return [FaceppClient requestWithParameters:@"info/get_image" :[NSArray arrayWithObjects:@"img_id", imageId, nil]];
+    return [FaceppClient requestWithMethod:@"info/get_image" params:[NSArray arrayWithObjects:@"img_id", imageId, nil]];
 }
 
 -(FaceppResult*) getPersonList {
-    return [FaceppClient requestWithParameters:@"info/get_person_list" :nil];
+    return [FaceppClient requestWithMethod:@"info/get_person_list" params:nil];
 }
 
 -(FaceppResult*) getFacesetList {
-    return [FaceppClient requestWithParameters:@"info/get_faceset_list" :nil];
+    return [FaceppClient requestWithMethod:@"info/get_faceset_list" params:nil];
 }
 
 -(FaceppResult*) getQuota {
-    return [FaceppClient requestWithParameters:@"info/get_quota" :nil];
+    return [FaceppClient requestWithMethod:@"info/get_quota" params:nil];
 }
 
 -(FaceppResult*) getSessionWithSessionId:(NSString*)sessionId {
-    return [FaceppClient requestWithParameters:@"info/get_session" :[NSArray arrayWithObjects:@"session_id", sessionId, nil]];
+    return [FaceppClient requestWithMethod:@"info/get_session" params:[NSArray arrayWithObjects:@"session_id", sessionId, nil]];
 }
 
 @end

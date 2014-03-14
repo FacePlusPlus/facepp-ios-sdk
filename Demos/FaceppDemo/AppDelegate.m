@@ -19,11 +19,11 @@
 }
 
 - (NSString*) getPhotoURL:(int) index {
-    return [NSString stringWithFormat:@"http://cn.faceplusplus.com/wp-content/themes/faceplusplus.zh/assets/img/demo/%d.jpg", index+1];
+    return [NSString stringWithFormat:@"http://www.faceplusplus.com.cn/wp-content/themes/faceplusplus/assets/img/demo/%d.jpg", index+1];
 }
 
 - (NSString*) getTraningURL:(int) index {
-    return [NSString stringWithFormat:@"http://cn.faceplusplus.com/wp-content/themes/faceplusplus.zh/assets/img/demo/%d.jpg", index+1];
+    return [NSString stringWithFormat:@"http://www.faceplusplus.com.cn/wp-content/themes/faceplusplus/assets/img/demo/%d.jpg", index+1];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

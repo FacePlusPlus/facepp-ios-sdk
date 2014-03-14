@@ -28,11 +28,11 @@
         [params addObject:@"person_name"];
         [params addObject:personName];
     }
-    return [FaceppClient requestWithParameters:@"person/add_face" :params];
+    return [FaceppClient requestWithMethod:@"person/add_face" params:params];
 }
 
 -(FaceppResult*) create {
-    return [FaceppClient requestWithParameters:@"person/create" :nil];
+    return [FaceppClient requestWithMethod:@"person/create" params:nil];
 }
 
 -(FaceppResult*) createWithPersonName:(NSString*)personName andFaceId:(NSArray*)faceId andTag:(NSString*)tag andGroupId:(NSArray*)groupId orGroupName:(NSArray*)groupName {
@@ -66,7 +66,7 @@
             [faces appendFormat:@",%@", [faceId objectAtIndex:i]];
         [params addObject:faces];
     }
-    return [FaceppClient requestWithParameters:@"person/create" :params];
+    return [FaceppClient requestWithMethod:@"person/create" params:params];
 }
 
 -(FaceppResult*) deleteWithPersonName:(NSString*)personName orPersonId:(NSString*)personId {
@@ -79,7 +79,7 @@
         [params addObject:@"person_name"];
         [params addObject:personName];
     }
-    return [FaceppClient requestWithParameters:@"person/delete" :params];
+    return [FaceppClient requestWithMethod:@"person/delete" params:params];
 }
 
 -(FaceppResult*) getInfoWithPersonName:(NSString*)personName orPersonId:(NSString*)personId {
@@ -92,7 +92,7 @@
         [params addObject:@"person_name"];
         [params addObject:personName];
     }
-    return [FaceppClient requestWithParameters:@"person/get_info" :params];
+    return [FaceppClient requestWithMethod:@"person/get_info" params:params];
 }
 
 -(FaceppResult*) removeAllFaceWithPersonName:(NSString *)personName orPersonId:(NSString *)personId {
@@ -116,7 +116,7 @@
             [faces appendFormat:@",%@", [faceId objectAtIndex:i]];
         [params addObject:faces];
     }
-    return [FaceppClient requestWithParameters:@"person/remove_face" :params];
+    return [FaceppClient requestWithMethod:@"person/remove_face" params:params];
 
 }
 
@@ -138,7 +138,7 @@
         [params addObject:@"tag"];
         [params addObject:tag];
     }
-    return [FaceppClient requestWithParameters:@"person/set_info" :params];
+    return [FaceppClient requestWithMethod:@"person/set_info" params:params];
 }
 
 @end
