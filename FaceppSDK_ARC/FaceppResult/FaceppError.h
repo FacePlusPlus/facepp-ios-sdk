@@ -1,9 +1,9 @@
 //
 //  FaceppError.h
-//  ImageCapture
+//  FaceppSDK+Demo
 //
 //  Created by youmu on 12-11-27.
-//  Copyright (c) 2012年 Megvii. All rights reserved.
+//  Copyright (c) 2012 Megvii. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -23,7 +23,7 @@
 /*!
  *  @brief error message
  */
-@property (nonatomic, retain) NSString* message;
+@property (nonatomic, strong) NSString* message;
 
 
 -(id) initWithErrorMsg:(NSString*) msg andHttpStatusCode:(int)httpCode andErrorCode:(int) code;

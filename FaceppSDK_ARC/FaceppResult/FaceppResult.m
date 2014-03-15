@@ -14,7 +14,7 @@
 @synthesize success;
 @synthesize content;
 
--(id) initWithSuccess: (BOOL) succ: (FaceppError*) err {
+-(id) initWithSuccess: (BOOL) succ withError: (FaceppError*) err {
     if ((self = [super init]) ) {
         success = succ;
         if (err != nil)
@@ -23,8 +23,9 @@
     return self;
 }
 
-+(id) resultWithSuccess: (BOOL) success: (FaceppError*) error {
-    return [[FaceppResult alloc] initWithSuccess:success :error] ;
++(id) resultWithSuccess: (BOOL) success withError: (FaceppError*) error {
+    return [[FaceppResult alloc] initWithSuccess:success withError:error];
 }
+
 
 @end

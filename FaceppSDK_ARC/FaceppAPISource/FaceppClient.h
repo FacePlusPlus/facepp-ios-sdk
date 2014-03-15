@@ -1,9 +1,9 @@
 //
 //  FacePPClient.h
-//  ImageCapture
+//  FaceppSDK+Demo
 //
 //  Created by youmu on 12-10-25.
-//  Copyright (c) 2012年 Megvii. All rights reserved.
+//  Copyright (c) 2012 Megvii. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -16,7 +16,7 @@
 +(void) setDebugMode:(BOOL) on;
 +(void) initializeWithApiKey: (NSString*)apiKey apiSecret:(NSString*) apiSecret region:(APIServerRegion)region;
 
-+(FaceppResult*) requestWithParameters: (NSString*)method: (NSArray*)params;
-+(FaceppResult*) requestWithImage: (NSString*)method: (NSData*)imageData: (NSArray*)params;
++(FaceppResult*) requestWithMethod: (NSString*)method params: (NSArray*)params;
++(FaceppResult*) requestWithMethod: (NSString*)method image: (NSData*)imageData params: (NSArray*)params;
 
 @end

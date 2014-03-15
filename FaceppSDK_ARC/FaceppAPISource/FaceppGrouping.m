@@ -21,7 +21,7 @@
         [params addObject:@"faceset_name"];
         [params addObject:facesetName];
     }
-    return [FaceppClient requestWithParameters:@"grouping/grouping" :params];
+    return [FaceppClient requestWithMethod:@"grouping/grouping" params:params];
 }
 
 @end
