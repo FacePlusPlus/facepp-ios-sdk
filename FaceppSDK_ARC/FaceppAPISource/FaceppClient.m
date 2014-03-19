@@ -75,7 +75,7 @@ static NSString *SERVER_ADDRESS = CN_SERVER_ADDRESS;
             [urlString appendFormat:@"&%@=%@", [params objectAtIndex:i], [params objectAtIndex:i+1]];
         }
     }
-    return urlString;
+    return [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 +(FaceppResult*) requestWithMethod: (NSString*) method params: (NSArray*) params {
