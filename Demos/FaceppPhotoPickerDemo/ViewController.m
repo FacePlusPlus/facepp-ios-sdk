@@ -150,7 +150,7 @@
 -(void) detectWithImage: (UIImage*) image {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-    FaceppResult *result = [[FaceppAPI detection] detectWithURL:nil orImageData:UIImageJPEGRepresentation(image, 1) mode:FaceppDetectionModeNormal attribute:FaceppDetectionAttributeNone];
+    FaceppResult *result = [[FaceppAPI detection] detectWithURL:nil orImageData:UIImageJPEGRepresentation(image, 0.5) mode:FaceppDetectionModeNormal attribute:FaceppDetectionAttributeNone];
     if (result.success) {
         double image_width = [[result content][@"img_width"] doubleValue] *0.01f;
         double image_height = [[result content][@"img_height"] doubleValue] * 0.01f;
