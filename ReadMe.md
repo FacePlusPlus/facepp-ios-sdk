@@ -1,4 +1,4 @@
-##中文文档
+#中文文档
 
 * 这个Demo里面的SDK是对官网在线Api接口的封装,需要联网使用.官网接口文档地址: <https://console.faceplusplus.com.cn/documents/4888373>
 * 如何运行Demo:
@@ -14,7 +14,7 @@
 
 * 如果有问题,请加入QQ群`418490173`咨询技术支持
 
-##English Document
+#English Document
 
 * The SDK in the Demo is a package of online api which need to use the network. The api document: <https://console.faceplusplus.com/documents/5679127>
 * How to run the Demo ?
