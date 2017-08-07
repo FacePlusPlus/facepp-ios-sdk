@@ -5,7 +5,7 @@
     * 在官网注册账号: <https://www.faceplusplus.com.cn/>
     * 创建APIKey来使用: <https://console.faceplusplus.com.cn/app/apikey/create> (试用的APIKey可以免费使用,可能有并发数错误.正式APIKey需要充值后使用)
     * 配置`FCPPConfig.h`文件,将生成的`APIKey`和`APISecret`写到这个文件,`isChina` 设置为`1`.
-    * 运行.   
+    * 运行  
 
 * 如何集成到自己的项目
   
