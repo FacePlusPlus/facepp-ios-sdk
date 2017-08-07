@@ -1,90 +1,27 @@
-##2013.10.16 update
-* Compatible with new API(new attributes, landmarks etc.) 
+##中文文档
+* 这个Demo里面的SDK是对官网api接口的封装,需要联网使用.官网接口地址: <https://console.faceplusplus.com.cn/documents/4888373>
+* 如何运行Demo:
+    1. 在官网注册账号: <https://www.faceplusplus.com.cn/>
+    2. 创建apikey来使用: <https://console.faceplusplus.com.cn/app/apikey/create> (试用的apikey可以免费使用,可能有并发数错误.正式apikey需要充值后使用)
+    3. 配置`FCPPConfig.h`文件,将生成的`apikey`和`apisecret`写到这个文件,`isChina` 设置为`1`.
+    4. 运行.   
 
-##2.0 update
-* Compatible with 2.0 API
-* Modify the initialize function to change region between CN and US 
-	- Example: `[FaceppAPI initWithApiKey: @"YOUR_KEY" andApiSecret: @"YOUR_SECRET" andRegion: API_SERVER_REGION]`
+* 如何集成到自己的项目
+  1.把`FCPPSDK`和`AFNetworking`这个文件夹拖入到自己的项目即可
+  2.配置`FCPPConfig.h`文件,方法同上面第三步.  
 
-------------------------------------------------------
-##To integrate FacePlusPlus SDK into your iOS project
+* 如果有问题,请加入QQ群418490173咨询技术支持
 
-1. In the finder, drag FaceppSDK into project's file folder.
+##English Document
+* The SDK in the Demo is a package of online api which need to use the network. The api document: <https://console.faceplusplus.com/documents/5679127>
+* How to run the Demo ?
+    1. Register an account in the offcial website: <https://www.faceplusplus.com/>
+    2. Creating a apiKey and apiSecret to use: <https://console.faceplusplus.com/app/apikey/create> (The free apikey has a limit of on the number of concurrent,and if using the official apikey, please make sure the account balance is sufficient)
+    3. Set the `apiKey` and `apiSecret` in the file `FCPPConfig.h`. The value of `isChina`  is `0`. 
 
-2. Add it to your project: 
-	- File -> Add Files to "your project"
-	- Choose 'Recursively create groups for any added folders'
-
-3. In xcodeproj -> Build Settings, set **"Objective-C Automatic Reference Counting"** to **NO**
-	- If you want to use automatic reference counting, you can use "FaceppSDK_ARC" instead of "FaceppSDK" which in step 1&2.
-
-4. In your Application Delegate:
-	- Import FaceppAPI
-	- Add: `[FaceppAPI initWithApiKey: @"YOUR_KEY" andApiSecret: @"YOUR_SECRET"]`
-	- Sample code:
-	<pre><code>\#import "FaceppAPI.h"
-	\- (BOOL)application:(UIApplication \*)application didFinishLaunchingWithOptions:(NSDictionary \*)launchOptions {
-		[FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
-		...
-	}</code></pre>
-
-5. Call FaceppAPI to do anything you want, it will return a struct called `FaceppResult`
-	- Examples: 
-	<pre><code>FaceppResult\* result = [[FaceppAPI detection] detectWithURL:nil 
-							imageData:[NSData dataWithContentsOfFile:@"LOCAL_FILE_PATH"]];
-FaceppResult\* result = [[FaceppAPI group] deleteWithGroupName: @"GROUP_NAME" orGroupId: nil];</code></pre>
-6. Get value from FaceppResult
-	- Examples:
-		- Get image's width in pixel from a detection result - `detectLocalFileResult`:
-	<pre><code>double img_width = [[detectLocalFileResult content][@"img_width"] doubleValue];</code></pre>
-		- Get the first face_id from result:
-			<pre><code>NSString \*face_id = [detectLocalFileResult content][@"face"][0][@"face_id"];</code></pre>
-
-7. Optional: enable debug mode	
-	- Set debug mode on to display all http request packages and response raw JSON result on console output.
-		<pre><code>[FaceppAPI setDebugMode: TRUE];</code></pre>
-
--- More sample codes would be found in "FaceppDemo" --
-
--------------------------------------------------------------------------------------
-
-##您只需要做以下几个步骤就可以将FacePlusPlus SDK集成到您的iOS工程中
-
-1. 在finder中，将FaceppSDK目录拖入工程目录下
-
-2. 将FaceppSDK添加至您的工程中
-	- 在菜单中选择File -> AddFiles to "YOUR_PROJECT"
-	- 将'Recursively create groups for any added folders'选项钩上
-
-3. 在工程设置文件中的Build Settings内，将**"Objective-C Automatic Reference Counting"**设置为**NO**
-	- 注：如果需要使用自动引用计数，请用FaceppSDK_ARC替换FaceppSDK，并重新执行步骤1和2
-
-4. 在您的应用程序入口处添加以下代码：
-	- import FaceppAPI
-	- 添加`[FaceppAPI initWithApiKey: @"YOUR_KEY" andApiSecret: @"YOUR_SECRET"]`
-	- 举例来说，具体工程入口的代码如下所示:
-	<pre><code>\#import "FaceppAPI.h"
-	\- (BOOL)application:(UIApplication \*)application didFinishLaunchingWithOptions:(NSDictionary \*)launchOptions {
-		[FaceppAPI initWithApiKey:API_KEY andApiSecret:API_SECRET];
-		...
-	}</code></pre>
-
-5. 使用 FaceppAPI接口来调用任何您想调用的接口，在获得数据以后其将返回一个`FaceppResult`结构
-	－例子：
-	<pre><code>FaceppResult\* result = [[FaceppAPI detection] detectWithURL:nil 
-							imageData:[NSData dataWithContentsOfFile:@"LOCAL_FILE_PATH"]];
-FaceppResult\* result = [[FaceppAPI group] deleteWithGroupName: @"GROUP_NAME" orGroupId: nil];</code></pre>
-
-6. 从FaceppResult中获取结果：
-	- 例子:
-		- 从返回的检测结果(`detectLocalFileResult`)中获得图像的宽度：
-	<pre><code>double img_width = [[detectLocalFileResult content][@"img_width"] doubleValue];</code></pre>
-		- 获得第一张脸的face_id：
-			<pre><code>NSString \*face_id = [detectLocalFileResult content][@"face"][0][@"face_id"];</code></pre>
-
-7. 使用调试模式：
-	- 开启调试模式之后，程序将向控制台输出所有http请求的url，以及返回json的原始数据，以供调试使用。
-		<pre><code>[FaceppAPI setDebugMode: TRUE];</code></pre>
-
--- 更多的使用方法样例可以在“FaceppDemo”工程中发现 --
+* To integrate SDK into your iOS project
+    
+    1. Drag `FaceppSDK` and `AFNetworking` into project's file folder.
+    2. Config the file `FCPPConfig.h` just like the third step above.
+* If have any problem please contact us by sending email to support-mc@megvii.com
 

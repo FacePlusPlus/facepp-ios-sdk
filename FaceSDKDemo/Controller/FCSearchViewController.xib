@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FCSearchViewController">
+            <connections>
+                <outlet property="collectionView" destination="10a-WO-MfA" id="jcr-eA-9gL"/>
+                <outlet property="imageView" destination="ba1-XY-jce" id="teF-h2-40u"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ba1-XY-jce">
+                    <rect key="frame" x="10" y="312" width="355" height="345"/>
+                </imageView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="10a-WO-MfA">
+                    <rect key="frame" x="10" y="74" width="355" height="120"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="3hq-uY-e2h"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="5" id="kCF-GX-bTV">
+                        <size key="itemSize" width="120" height="120"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="GzM-jV-Jqn"/>
+                        <outlet property="delegate" destination="-1" id="2J7-KX-VJ0"/>
+                    </connections>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YF-UX-1Da">
+                    <rect key="frame" x="10" y="258" width="355" height="44"/>
+                    <color key="backgroundColor" red="0.19098815320000001" green="0.52225339410000005" blue="0.89663797619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="xBU-Vv-fPj"/>
+                    </constraints>
+                    <state key="normal" title="第二步: 添加一张搜索照片">
+                        <color key="titleColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="addFace:" destination="-1" eventType="touchUpInside" id="5bl-Am-A1x"/>
+                        <action selector="addSearchImage:" destination="-1" eventType="touchUpInside" id="Evl-sZ-NCI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="se1-Hq-ek3">
+                    <rect key="frame" x="10" y="204" width="355" height="44"/>
+                    <color key="backgroundColor" red="0.19098815320000001" green="0.52225339410000005" blue="0.89663797619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="NCp-TI-zBG"/>
+                    </constraints>
+                    <state key="normal" title="第一步: 添加多张照片到搜索库">
+                        <color key="titleColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="addFace:" destination="-1" eventType="touchUpInside" id="JlM-hX-ZTh"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="9YF-UX-1Da" secondAttribute="trailing" constant="10" id="8G0-qR-0sS"/>
+                <constraint firstItem="9YF-UX-1Da" firstAttribute="top" secondItem="se1-Hq-ek3" secondAttribute="bottom" constant="10" id="KIG-9p-xbV"/>
+                <constraint firstItem="ba1-XY-jce" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="L1Y-N6-jrN"/>
+                <constraint firstAttribute="trailing" secondItem="se1-Hq-ek3" secondAttribute="trailing" constant="10" id="LY4-uY-Zan"/>
+                <constraint firstItem="10a-WO-MfA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="NHh-7k-mCv"/>
+                <constraint firstAttribute="trailing" secondItem="10a-WO-MfA" secondAttribute="trailing" constant="10" id="UJR-Na-BIh"/>
+                <constraint firstAttribute="bottom" secondItem="ba1-XY-jce" secondAttribute="bottom" constant="10" id="Unj-7s-NMf"/>
+                <constraint firstItem="10a-WO-MfA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="cpm-88-xfR"/>
+                <constraint firstItem="se1-Hq-ek3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="nWe-bQ-OPc"/>
+                <constraint firstItem="ba1-XY-jce" firstAttribute="top" secondItem="9YF-UX-1Da" secondAttribute="bottom" constant="10" id="qAX-h1-XTK"/>
+                <constraint firstItem="se1-Hq-ek3" firstAttribute="top" secondItem="10a-WO-MfA" secondAttribute="bottom" constant="10" id="sxA-9W-iH9"/>
+                <constraint firstAttribute="trailing" secondItem="ba1-XY-jce" secondAttribute="trailing" constant="10" id="wfo-kX-7hE"/>
+                <constraint firstItem="9YF-UX-1Da" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="y1h-ds-yxM"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+</document>
