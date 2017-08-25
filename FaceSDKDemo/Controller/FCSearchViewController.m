@@ -138,7 +138,7 @@ static NSString *cellId = @"faceCellId";
     FCPPFace *face = [[FCPPFace alloc] initWithImage:image];
     self.faceIndex = -1;
     //4.搜索
-    [face searchFromFaceSet:self.faceSet returnCount:2 completion:^(id info, NSError *error) {
+    [face searchFromFaceSet:self.faceSet returnCount:1 completion:^(id info, NSError *error) {
         if (info) {
             NSArray *faces = info[@"faces"];
             if (faces.count) {
