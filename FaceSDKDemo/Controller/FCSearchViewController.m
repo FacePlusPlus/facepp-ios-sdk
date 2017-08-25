@@ -12,7 +12,7 @@
 #import "SDImageCache.h"
 
 static NSString *cellId = @"faceCellId";
-static NSString *tokenList = @"tokenList";
+#define faceFilePath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"face.plist"]
 
 @interface FCSearchViewController ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -22,7 +22,9 @@ static NSString *tokenList = @"tokenList";
 
 @property (strong , nonatomic) FCPPFaceSet *faceSet;
 
-@property (strong , nonatomic) NSMutableArray *dataArr;
+@property (strong , nonatomic) NSMutableDictionary *faceMap;
+
+@property (strong , nonatomic) NSMutableArray *dataArray;
 
 @property (assign , nonatomic) BOOL addFace;
 
@@ -96,20 +98,26 @@ static NSString *tokenList = @"tokenList";
         }else{
             hud.label.text = @"正在添加到人脸集合...";
             NSArray *faceTokens = [info[@"faces"] valueForKeyPath:@"face_token"];
-            if (faceTokens.count) {
-                //2.1建立映射关系
-                for (NSString *faceToken in faceTokens) {
-                    [[SDImageCache sharedImageCache] storeImage:image forKey:faceToken];
-                }
-            }
+
             //3.添加到人脸集合
             if (faceTokens.count && weakSelf.faceSet) {
                 [weakSelf.faceSet addFaceTokens:faceTokens completion:^(id info, NSError *error) {
                     if (error == nil) {
-                        [weakSelf.dataArr addObjectsFromArray:faceTokens];
-                        [[NSUserDefaults standardUserDefaults] setObject:self.dataArr forKey:tokenList];
+                        //2.1建立映射关系
+                        for (NSString *faceToken in faceTokens) {
+                            //把图片存储到本地，faceToken作为key存储图片
+                            [[SDImageCache sharedImageCache] storeImage:image forKey:faceToken];
+                           
+                            NSDictionary *dic = @{@"imageKey": faceToken,  //对应的本地的图片
+//                                                  @"personName" : @"xxx", //设置对应人的名字
+                                                    @"" : @"",              //其他自定义对应的信息
+                                                 };
+                            [weakSelf.faceMap setObject:dic forKey:faceToken];//建立映射
+                            [weakSelf.dataArray addObject:faceToken];
+                        }
+                        [weakSelf.faceMap writeToFile:faceFilePath atomically:YES];
                         [weakSelf.collectionView reloadData];
-                        [weakSelf.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.dataArr.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+                        [weakSelf.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.dataArray.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
                         hud.label.text = @"添加成功";
                     }else{
                         hud.label.text = @"添加失败";
@@ -147,14 +155,14 @@ static NSString *tokenList = @"tokenList";
                 if (faceToken && vaild) {//搜索到人脸
                     NSLog(@"%@",faceToken);
                     //5.根据faceToken的映射关系,取出相应信息
-                    if ([self.dataArr containsObject:faceToken]) {
-                        NSInteger index = [self.dataArr indexOfObject:faceToken];
+                    if ([self.dataArray containsObject:faceToken]) {
+                        NSInteger index = [self.dataArray indexOfObject:faceToken];
                         self.faceIndex = index;
                         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
                         [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
                     }
                 }else{
-                    hud.label.text = @"没有搜索到人脸";
+                    hud.label.text = @"没有搜索到合适的人脸";
                     [hud hideAnimated:YES afterDelay:1.0];
                 }
             }else{
@@ -183,13 +191,12 @@ static NSString *tokenList = @"tokenList";
     [self presentViewController:picker animated:YES completion:nil];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    self.navigationItem.rightBarButtonItem.enabled = self.dataArr.count;
-    return self.dataArr.count;
+    return self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    NSString *faceToken = self.dataArr[indexPath.item];
+    NSString *faceToken = self.dataArray[indexPath.item];
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.backgroundColor = [UIColor whiteColor];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -204,17 +211,28 @@ static NSString *tokenList = @"tokenList";
     return cell;
 }
 
-- (NSMutableArray *)dataArr{
-    if(_dataArr == nil){
-       _dataArr = [[NSUserDefaults standardUserDefaults] arrayForKey:tokenList].mutableCopy;
+- (NSMutableDictionary *)faceMap{
+    if (_faceMap == nil) {
+        _faceMap = [NSDictionary dictionaryWithContentsOfFile:faceFilePath].mutableCopy;
     }
     
-    if (_dataArr == nil) {
-        _dataArr = [NSMutableArray array];
+    if (_faceMap == nil) {
+        _faceMap = [NSMutableDictionary dictionary];
     }
-    return _dataArr;
+    return _faceMap;
 }
 
+- (NSMutableArray *)dataArray{
+    if (_dataArray == nil) {
+        _dataArray = self.faceMap.allKeys.mutableCopy;
+    }
+    
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    
+    return _dataArray;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
