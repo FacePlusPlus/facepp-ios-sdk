@@ -16,5 +16,6 @@
 #import "FCPPBody.h"
 #import "FCPPOCR.h"
 #import "FCPPFaceDetect.h"
+#import "FCPPMergeface.h"
 
 #endif /* FCPPSDK_h */

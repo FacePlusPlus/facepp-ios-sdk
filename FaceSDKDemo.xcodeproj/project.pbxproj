@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A494890020049E2F008E649D /* FCPPMergeface.m in Sources */ = {isa = PBXBuildFile; fileRef = A49488FF20049E2F008E649D /* FCPPMergeface.m */; };
+		A4ACD9F4200368E500F56F33 /* mergefaceSource.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4ACD9F3200368E500F56F33 /* mergefaceSource.jpg */; };
+		A4ACD9FA20036A4E00F56F33 /* FCmergefaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACD9F820036A4E00F56F33 /* FCmergefaceViewController.m */; };
+		A4ACDA01200373CF00F56F33 /* mergefaceTarget.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4ACDA00200373CF00F56F33 /* mergefaceTarget.jpg */; };
 		CC10EAB31EF378B2000B329D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC10EAB21EF378B2000B329D /* main.m */; };
 		CC10EAB61EF378B2000B329D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC10EAB51EF378B2000B329D /* AppDelegate.m */; };
 		CC10EAB91EF378B2000B329D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC10EAB81EF378B2000B329D /* ViewController.m */; };
@@ -74,6 +78,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A49488FE20049E2F008E649D /* FCPPMergeface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCPPMergeface.h; sourceTree = "<group>"; };
+		A49488FF20049E2F008E649D /* FCPPMergeface.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCPPMergeface.m; sourceTree = "<group>"; };
+		A4ACD9F3200368E500F56F33 /* mergefaceSource.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mergefaceSource.jpg; sourceTree = "<group>"; };
+		A4ACD9F720036A4E00F56F33 /* FCmergefaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCmergefaceViewController.h; sourceTree = "<group>"; };
+		A4ACD9F820036A4E00F56F33 /* FCmergefaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCmergefaceViewController.m; sourceTree = "<group>"; };
+		A4ACDA00200373CF00F56F33 /* mergefaceTarget.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mergefaceTarget.jpg; sourceTree = "<group>"; };
 		CC10EAAE1EF378B2000B329D /* FaceSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC10EAB21EF378B2000B329D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CC10EAB41EF378B2000B329D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -249,6 +259,8 @@
 		CC10EAB11EF378B2000B329D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A4ACDA00200373CF00F56F33 /* mergefaceTarget.jpg */,
+				A4ACD9F3200368E500F56F33 /* mergefaceSource.jpg */,
 				CCA9DBEC1F1F4AB8002A6CE2 /* xingshizheng.jpg */,
 				CCA9DBE71F1F420C002A6CE2 /* jiashizheng.jpg */,
 				CCA9DBE51F1F404E002A6CE2 /* idcard.jpg */,
@@ -339,6 +351,8 @@
 				CC43F5241F049C7C00850E75 /* FCPPBody.m */,
 				CC43F52A1F049C7C00850E75 /* FCPPOCR.h */,
 				CC43F52B1F049C7C00850E75 /* FCPPOCR.m */,
+				A49488FE20049E2F008E649D /* FCPPMergeface.h */,
+				A49488FF20049E2F008E649D /* FCPPMergeface.m */,
 			);
 			path = FCPPSDK;
 			sourceTree = SOURCE_ROOT;
@@ -411,6 +425,8 @@
 				CCBE14191F3027DC00A95E5F /* FCOCRIDCardViewController.m */,
 				CCBE141A1F3027DC00A95E5F /* FCOCRVehicleLicenseViewController.h */,
 				CCBE141B1F3027DC00A95E5F /* FCOCRVehicleLicenseViewController.m */,
+				A4ACD9F720036A4E00F56F33 /* FCmergefaceViewController.h */,
+				A4ACD9F820036A4E00F56F33 /* FCmergefaceViewController.m */,
 				CCBE14281F30288500A95E5F /* NSMutableAttributedString+FCExtension.h */,
 				CCBE14291F30288500A95E5F /* NSMutableAttributedString+FCExtension.m */,
 			);
@@ -478,11 +494,13 @@
 			files = (
 				CC5EB0741F17738200699762 /* body.jpg in Resources */,
 				CC43F54E1F0506E800850E75 /* sunli-2.png in Resources */,
+				A4ACD9F4200368E500F56F33 /* mergefaceSource.jpg in Resources */,
 				CCA38DDC1F384ABD0086D967 /* icon@2x.png in Resources */,
 				CCA9DC5C1F21F04A002A6CE2 /* FCCompareViewController.xib in Resources */,
 				CCA9DBE81F1F420C002A6CE2 /* jiashizheng.jpg in Resources */,
 				CC43F5521F05113700850E75 /* sunli-1.png in Resources */,
 				CCA9DBED1F1F4AB8002A6CE2 /* xingshizheng.jpg in Resources */,
+				A4ACDA01200373CF00F56F33 /* mergefaceTarget.jpg in Resources */,
 				CC10EAC11EF378B3000B329D /* LaunchScreen.storyboard in Resources */,
 				CCA38DDD1F384ABD0086D967 /* icon.png in Resources */,
 				CC5EB0701F176A0900699762 /* FCSearchViewController.xib in Resources */,
@@ -519,6 +537,7 @@
 				CC5EB0401F13824400699762 /* MBProgressHUD.m in Sources */,
 				CC10EAB31EF378B2000B329D /* main.m in Sources */,
 				CCA9DC5B1F21F04A002A6CE2 /* FCCompareViewController.m in Sources */,
+				A4ACD9FA20036A4E00F56F33 /* FCmergefaceViewController.m in Sources */,
 				CC43F53A1F049C7C00850E75 /* UIProgressView+AFNetworking.m in Sources */,
 				CCBE141C1F3027DC00A95E5F /* FCOCRDriverLicenceViewController.m in Sources */,
 				CCA9DC901F2841AA002A6CE2 /* UIImage+FCExtension.m in Sources */,
@@ -541,6 +560,7 @@
 				CC5EB0321F1381EC00699762 /* SDWebImageDecoder.m in Sources */,
 				CC5EB0301F1381EC00699762 /* SDImageCache.m in Sources */,
 				CC43F5411F049C7C00850E75 /* FCPPOCR.m in Sources */,
+				A494890020049E2F008E649D /* FCPPMergeface.m in Sources */,
 				CC43F5381F049C7C00850E75 /* UIButton+AFNetworking.m in Sources */,
 				CC43F53B1F049C7C00850E75 /* UIRefreshControl+AFNetworking.m in Sources */,
 				CCBE142A1F30288500A95E5F /* NSMutableAttributedString+FCExtension.m in Sources */,

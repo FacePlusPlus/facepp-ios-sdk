@@ -44,7 +44,7 @@
     NSMutableDictionary *param = [NSMutableDictionary dictionaryWithDictionary:dic];
     [param setValue:kApiKey forKey:@"api_key"];
     [param setValue:kApiSecret forKey:@"api_secret"];
-    
+
     //fileData抽取出来
     NSMutableDictionary *fileDic = [NSMutableDictionary dictionary];
     
@@ -56,7 +56,7 @@
             }
         }
     }];
-    
+
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:url parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [fileDic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             [formData appendPartWithFileData:obj name:key fileName:key mimeType:@"image/jpeg"];

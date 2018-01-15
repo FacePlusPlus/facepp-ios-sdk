@@ -16,6 +16,7 @@
 #import "FCOCRIDCardViewController.h"
 #import "FCOCRDriverLicenceViewController.h"
 #import "FCOCRVehicleLicenseViewController.h"
+#import "FCmergefaceViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong , nonatomic) NSArray *dataArray;
@@ -35,7 +36,9 @@
                        
                        @[@{@"title" : @"身份证识别",@"selector" : @"ocrIdCard"},
                          @{@"title" : @"驾驶证识别",@"selector" : @"ocrDriverLicense"},
-                         @{@"title" : @"行驶证识别",@"selector" : @"ocrVehicleLicense"}]];
+                         @{@"title" : @"行驶证识别",@"selector" : @"ocrVehicleLicense"}],
+                       
+                       @[@{@"title":@"人脸融合",@"selector":@"mergeface"}]];
 }
 
 - (void)detectFace{
@@ -84,6 +87,13 @@
     [self.navigationController pushViewController:vehicleLicenseVC animated:YES];
 }
 
+-(void)mergeface{
+    FCmergefaceViewController* mergefaceVC = [[FCmergefaceViewController alloc]init];
+    [self.navigationController pushViewController:mergefaceVC animated:YES];
+
+    
+}
+
 #pragma mark- delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -107,7 +117,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return _dataArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -135,6 +145,11 @@
         case 2:
         {
             title = @"  OCR识别";
+        }
+            break;
+        case 3:
+        {
+            title = @"  图像识别";
         }
             break;
         default:

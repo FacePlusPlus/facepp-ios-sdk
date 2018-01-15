@@ -15,10 +15,13 @@
 #define FACE_WEB_BASE     FACE_WEB_BASE_CN
 #define HUMANBODY_DETECT  HUMANBODY_DETECT_CN
 #define HUMANBODY_SEGMENT HUMANBODY_SEGMENT_CN
+#define IMAGE_MERGEFACE   IMAGE_MERGEFACE_CN
+
 #else
 #define FACE_WEB_BASE     FACE_WEB_BASE_US
 #define HUMANBODY_DETECT  HUMANBODY_DETECT_US
 #define HUMANBODY_SEGMENT HUMANBODY_SEGMENT_US
+#define IMAGE_MERGEFACE   IMAGE_MERGEFACE_US
 #endif
 #endif
 
@@ -33,6 +36,7 @@ static NSString * FACE_WEB_BASE_US = @"https://api-us.faceplusplus.com/facepp/v3
 static NSString * FACE_DETECT  = @"detect";
 static NSString * FACE_COMPARE = @"compare";
 static NSString * FACE_SEARCH  = @"search";
+
 
 static NSString * FACETOEKN = @"face";
 static NSString * FACETOEKN_ANALYZE    = @"analyze";
@@ -67,6 +71,10 @@ static NSString * IMAGE_Object = @"beta/detectsceneandobject";
 static NSString * IMAGE_Text = @"v1/recognizetext";
 static NSString * IMAGE_Text_Beta = @"beta/recognizetext";
 
+//图像识别之图像融合
+static NSString * IMAGE_MERGEFACE_CN = @"https://api-cn.faceplusplus.com/imagepp/v1/";
+static NSString * IMAGE_MERGEFACE_US = @"https://api-us.faceplusplus.com/imagepp/v1/";
+static NSString * MERGEFACE = @"mergeface";
 
 @interface FCPPApi : NSObject
 /**
