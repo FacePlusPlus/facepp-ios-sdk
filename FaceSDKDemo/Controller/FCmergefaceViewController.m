@@ -37,6 +37,7 @@
     [self.contentScro addSubview:self.textView];
     
 }
+
 #pragma mark- UINavigationControllerDelegate,UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *image = info[UIImagePickerControllerOriginalImage];
@@ -75,7 +76,7 @@
                     //改变button坐标
                     self.mergeBtn.frame = CGRectMake(_imageViewResult.frame.origin.x, _imageViewResult.frame.origin.y+_imageViewResult.frame.size.height+10, _imageViewResult.frame.size.width, 44);
                 }
-                self.textView.text = [NSString stringWithFormat:@"%@",info];
+                self.textView.text = [NSString stringWithFormat:@"time_used:%@\nrequest_id:%@",info[@"time_used"],info[@"request_id"]];
             }
             if ([info isKindOfClass:[NSString class]]){
                 self.textView.text = info;

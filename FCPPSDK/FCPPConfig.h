@@ -13,13 +13,13 @@
  *  你的ApiKey
  *  Your ApiKey
  */
-#define kApiKey    @""
+#define kApiKey    @"K94tC5wqszOgcMOsgPrd-obzfzHWmXvI"
 
 /**
  *  你的ApiSecret
  *  Your ApiSecret
  */
-#define kApiSecret @""
+#define kApiSecret @"pUraBpAMwu7DGxU-BK3MEa0Qn3l95SMT"
 
 /**
  *  是否为中国地区,中国大陆 : 1 ,其他国家和地区 : 0
