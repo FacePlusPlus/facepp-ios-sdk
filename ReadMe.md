@@ -12,7 +12,7 @@
   * 把`FCPPSDK`和`AFNetworking`这个文件夹拖入到自己的项目即可
   * 配置`FCPPConfig.h`文件,方法同上面第三步.  
 
-* 如果有问题,请加入QQ群`418490173`咨询技术支持
+* 如果集成中有问题,请[联系我们](https://www.faceplusplus.com.cn/contact-us/)
 
 ## English Document
 
@@ -26,5 +26,5 @@
     
     * Drag `FaceppSDK` and `AFNetworking` into project's file folder.
     * Config the file `FCPPConfig.h` just like the third step above.
-* If have any problem please contact us by sending email to support-mc@megvii.com
+* If have any problem please [contact us](https://www.faceplusplus.com/contact-us/)
 

@@ -25,6 +25,7 @@
     self.tableView.separatorInset = UIEdgeInsetsMake(0, -15, 0, 0);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+
     
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, self.tableView.bounds.size.height *0.5)];
     
@@ -98,13 +99,13 @@
         self.tableView.tableFooterView = [[UIView alloc] init];
         return;
     }
-    UILabel *label = [[UILabel alloc] init];
-    label.numberOfLines = 0;
-    label.text = content;
-    label.frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 0);
-    [label sizeToFit];
     
-    self.tableView.tableFooterView = label;
+    UITextView* textView = [UITextView new];
+    textView.frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 0);
+    textView.text = content;
+    [textView sizeToFit];
+    
+    self.tableView.tableFooterView = textView;
 }
 #pragma mark- delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -116,6 +117,7 @@
     label.backgroundColor = [UIColor groupTableViewBackgroundColor];
     label.text = @"检测结果:";
     return label;
+    
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.tableView.bounds.size.width, 24)];
@@ -127,7 +129,7 @@
     return 44;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return self.dataArray.count ? 44 : 0;
+    return 44;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

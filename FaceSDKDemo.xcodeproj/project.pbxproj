@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A48AC93520E61A1400183217 /* FCBankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48AC93420E61A1400183217 /* FCBankCardViewController.m */; };
+		A48AC93720E61E8B00183217 /* bankCard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A48AC93620E61E8B00183217 /* bankCard.jpg */; };
+		A48AC93A20E62E7A00183217 /* FCBeautifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48AC93920E62E7A00183217 /* FCBeautifyViewController.m */; };
+		A48AC93C20E62F1800183217 /* beautify.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A48AC93B20E62F1800183217 /* beautify.jpg */; };
+		A48AF5F220EC71730040F2EA /* FCLicensePlateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48AF5F120EC71730040F2EA /* FCLicensePlateViewController.m */; };
+		A48AF5F420EC72250040F2EA /* plate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A48AF5F320EC72250040F2EA /* plate.jpg */; };
 		A494890020049E2F008E649D /* FCPPMergeface.m in Sources */ = {isa = PBXBuildFile; fileRef = A49488FF20049E2F008E649D /* FCPPMergeface.m */; };
 		A4ACD9F4200368E500F56F33 /* mergefaceSource.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4ACD9F3200368E500F56F33 /* mergefaceSource.jpg */; };
 		A4ACD9FA20036A4E00F56F33 /* FCmergefaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4ACD9F820036A4E00F56F33 /* FCmergefaceViewController.m */; };
 		A4ACDA01200373CF00F56F33 /* mergefaceTarget.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4ACDA00200373CF00F56F33 /* mergefaceTarget.jpg */; };
+		A4C5A1B920E63E6C003E6677 /* FCPPFaceBeautify.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C5A1B720E63E6C003E6677 /* FCPPFaceBeautify.m */; };
 		CC10EAB31EF378B2000B329D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC10EAB21EF378B2000B329D /* main.m */; };
 		CC10EAB61EF378B2000B329D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC10EAB51EF378B2000B329D /* AppDelegate.m */; };
 		CC10EAB91EF378B2000B329D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC10EAB81EF378B2000B329D /* ViewController.m */; };
@@ -78,12 +85,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A48AC93320E61A1400183217 /* FCBankCardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCBankCardViewController.h; sourceTree = "<group>"; };
+		A48AC93420E61A1400183217 /* FCBankCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCBankCardViewController.m; sourceTree = "<group>"; };
+		A48AC93620E61E8B00183217 /* bankCard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bankCard.jpg; sourceTree = "<group>"; };
+		A48AC93820E62E7A00183217 /* FCBeautifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCBeautifyViewController.h; sourceTree = "<group>"; };
+		A48AC93920E62E7A00183217 /* FCBeautifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCBeautifyViewController.m; sourceTree = "<group>"; };
+		A48AC93B20E62F1800183217 /* beautify.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beautify.jpg; sourceTree = "<group>"; };
+		A48AF5F020EC71730040F2EA /* FCLicensePlateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCLicensePlateViewController.h; sourceTree = "<group>"; };
+		A48AF5F120EC71730040F2EA /* FCLicensePlateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCLicensePlateViewController.m; sourceTree = "<group>"; };
+		A48AF5F320EC72250040F2EA /* plate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plate.jpg; sourceTree = "<group>"; };
 		A49488FE20049E2F008E649D /* FCPPMergeface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCPPMergeface.h; sourceTree = "<group>"; };
 		A49488FF20049E2F008E649D /* FCPPMergeface.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCPPMergeface.m; sourceTree = "<group>"; };
 		A4ACD9F3200368E500F56F33 /* mergefaceSource.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mergefaceSource.jpg; sourceTree = "<group>"; };
 		A4ACD9F720036A4E00F56F33 /* FCmergefaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCmergefaceViewController.h; sourceTree = "<group>"; };
 		A4ACD9F820036A4E00F56F33 /* FCmergefaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCmergefaceViewController.m; sourceTree = "<group>"; };
 		A4ACDA00200373CF00F56F33 /* mergefaceTarget.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mergefaceTarget.jpg; sourceTree = "<group>"; };
+		A4C5A1B720E63E6C003E6677 /* FCPPFaceBeautify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCPPFaceBeautify.m; sourceTree = "<group>"; };
+		A4C5A1B820E63E6C003E6677 /* FCPPFaceBeautify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCPPFaceBeautify.h; sourceTree = "<group>"; };
 		CC10EAAE1EF378B2000B329D /* FaceSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC10EAB21EF378B2000B329D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CC10EAB41EF378B2000B329D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -259,6 +277,9 @@
 		CC10EAB11EF378B2000B329D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A48AF5F320EC72250040F2EA /* plate.jpg */,
+				A48AC93B20E62F1800183217 /* beautify.jpg */,
+				A48AC93620E61E8B00183217 /* bankCard.jpg */,
 				A4ACDA00200373CF00F56F33 /* mergefaceTarget.jpg */,
 				A4ACD9F3200368E500F56F33 /* mergefaceSource.jpg */,
 				CCA9DBEC1F1F4AB8002A6CE2 /* xingshizheng.jpg */,
@@ -353,6 +374,8 @@
 				CC43F52B1F049C7C00850E75 /* FCPPOCR.m */,
 				A49488FE20049E2F008E649D /* FCPPMergeface.h */,
 				A49488FF20049E2F008E649D /* FCPPMergeface.m */,
+				A4C5A1B820E63E6C003E6677 /* FCPPFaceBeautify.h */,
+				A4C5A1B720E63E6C003E6677 /* FCPPFaceBeautify.m */,
 			);
 			path = FCPPSDK;
 			sourceTree = SOURCE_ROOT;
@@ -415,6 +438,8 @@
 				CC5EB0691F176A0900699762 /* FCSearchViewController.h */,
 				CC5EB06A1F176A0900699762 /* FCSearchViewController.m */,
 				CC5EB06B1F176A0900699762 /* FCSearchViewController.xib */,
+				A48AC93820E62E7A00183217 /* FCBeautifyViewController.h */,
+				A48AC93920E62E7A00183217 /* FCBeautifyViewController.m */,
 				CCBE141F1F3027F700A95E5F /* FCBodyDetectViewController.h */,
 				CCBE14201F3027F700A95E5F /* FCBodyDetectViewController.m */,
 				CCBE14211F3027F700A95E5F /* FCBodySegmentViewController.h */,
@@ -425,6 +450,10 @@
 				CCBE14191F3027DC00A95E5F /* FCOCRIDCardViewController.m */,
 				CCBE141A1F3027DC00A95E5F /* FCOCRVehicleLicenseViewController.h */,
 				CCBE141B1F3027DC00A95E5F /* FCOCRVehicleLicenseViewController.m */,
+				A48AC93320E61A1400183217 /* FCBankCardViewController.h */,
+				A48AC93420E61A1400183217 /* FCBankCardViewController.m */,
+				A48AF5F020EC71730040F2EA /* FCLicensePlateViewController.h */,
+				A48AF5F120EC71730040F2EA /* FCLicensePlateViewController.m */,
 				A4ACD9F720036A4E00F56F33 /* FCmergefaceViewController.h */,
 				A4ACD9F820036A4E00F56F33 /* FCmergefaceViewController.m */,
 				CCBE14281F30288500A95E5F /* NSMutableAttributedString+FCExtension.h */,
@@ -464,8 +493,8 @@
 				TargetAttributes = {
 					CC10EAAD1EF378B2000B329D = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = F4LXZEHY23;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = A8B3C25CVM;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -496,13 +525,16 @@
 				CC43F54E1F0506E800850E75 /* sunli-2.png in Resources */,
 				A4ACD9F4200368E500F56F33 /* mergefaceSource.jpg in Resources */,
 				CCA38DDC1F384ABD0086D967 /* icon@2x.png in Resources */,
+				A48AC93C20E62F1800183217 /* beautify.jpg in Resources */,
 				CCA9DC5C1F21F04A002A6CE2 /* FCCompareViewController.xib in Resources */,
 				CCA9DBE81F1F420C002A6CE2 /* jiashizheng.jpg in Resources */,
+				A48AC93720E61E8B00183217 /* bankCard.jpg in Resources */,
 				CC43F5521F05113700850E75 /* sunli-1.png in Resources */,
 				CCA9DBED1F1F4AB8002A6CE2 /* xingshizheng.jpg in Resources */,
 				A4ACDA01200373CF00F56F33 /* mergefaceTarget.jpg in Resources */,
 				CC10EAC11EF378B3000B329D /* LaunchScreen.storyboard in Resources */,
 				CCA38DDD1F384ABD0086D967 /* icon.png in Resources */,
+				A48AF5F420EC72250040F2EA /* plate.jpg in Resources */,
 				CC5EB0701F176A0900699762 /* FCSearchViewController.xib in Resources */,
 				CC43F5451F04DF8900850E75 /* demo-pic.jpg in Resources */,
 				CC10EABE1EF378B2000B329D /* Assets.xcassets in Resources */,
@@ -536,6 +568,8 @@
 				CC43F5371F049C7C00850E75 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				CC5EB0401F13824400699762 /* MBProgressHUD.m in Sources */,
 				CC10EAB31EF378B2000B329D /* main.m in Sources */,
+				A48AF5F220EC71730040F2EA /* FCLicensePlateViewController.m in Sources */,
+				A48AC93A20E62E7A00183217 /* FCBeautifyViewController.m in Sources */,
 				CCA9DC5B1F21F04A002A6CE2 /* FCCompareViewController.m in Sources */,
 				A4ACD9FA20036A4E00F56F33 /* FCmergefaceViewController.m in Sources */,
 				CC43F53A1F049C7C00850E75 /* UIProgressView+AFNetworking.m in Sources */,
@@ -544,6 +578,7 @@
 				CC43F52F1F049C7C00850E75 /* AFNetworkReachabilityManager.m in Sources */,
 				CCBE14231F3027F700A95E5F /* FCBodyDetectViewController.m in Sources */,
 				CC5EB04B1F14CA0700699762 /* FCDetectViewController.m in Sources */,
+				A48AC93520E61A1400183217 /* FCBankCardViewController.m in Sources */,
 				CC5EB0381F1381EC00699762 /* UIImage+GIF.m in Sources */,
 				CC5EB06F1F176A0900699762 /* FCSearchViewController.m in Sources */,
 				CC43F5401F049C7C00850E75 /* FCPPFaceSet.m in Sources */,
@@ -554,6 +589,7 @@
 				CC43F5361F049C7C00850E75 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				CC5EB1021F1DF91300699762 /* FCPPFaceDetect.m in Sources */,
 				CC5EB0311F1381EC00699762 /* SDWebImageCompat.m in Sources */,
+				A4C5A1B920E63E6C003E6677 /* FCPPFaceBeautify.m in Sources */,
 				CCBE141D1F3027DC00A95E5F /* FCOCRIDCardViewController.m in Sources */,
 				CC43F5391F049C7C00850E75 /* UIImageView+AFNetworking.m in Sources */,
 				CCBE141E1F3027DC00A95E5F /* FCOCRVehicleLicenseViewController.m in Sources */,
@@ -691,15 +727,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = F4LXZEHY23;
+				DEVELOPMENT_TEAM = A8B3C25CVM;
 				INFOPLIST_FILE = FaceSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iossinger.FaceSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "959c3f54-b424-4704-8301-c68159364e27";
-				PROVISIONING_PROFILE_SPECIFIER = Megvii_wildcard;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -707,7 +745,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8B3C25CVM;
 				INFOPLIST_FILE = FaceSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -63,7 +63,7 @@
     return croppedImage;
 }
 
-- (UIImage *)blendWithGrayImage:(UIImage *)grayImage backgroudColor:(long)hexColor{
+- (UIImage *) blendWithGrayImage:(UIImage *)grayImage backgroudColor:(long)hexColor{
     
     UInt32 * inputPixels;
     

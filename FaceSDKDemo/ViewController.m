@@ -17,6 +17,9 @@
 #import "FCOCRDriverLicenceViewController.h"
 #import "FCOCRVehicleLicenseViewController.h"
 #import "FCmergefaceViewController.h"
+#import "FCBankCardViewController.h"
+#import "FCBeautifyViewController.h"
+#import "FCLicensePlateViewController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong , nonatomic) NSArray *dataArray;
@@ -29,16 +32,19 @@
 
     self.dataArray = @[@[@{@"title" : @"人脸检测",@"selector" : @"detectFace"},
                          @{@"title" : @"人脸比对(1:1)",@"selector" : @"compareFace"},
-                         @{@"title" : @"人脸搜索(1:N)",@"selector" : @"searchFace"}],
+                         @{@"title" : @"人脸搜索(1:N)",@"selector" : @"searchFace"},
+                         @{@"title" : @"人脸美颜",@"selector" : @"beautifyFace"}],
                        
                        @[@{@"title" : @"人体识别",@"selector" : @"detectBody"},
                          @{@"title" : @"人体抠图",@"selector" : @"bodySegment"}],
                        
                        @[@{@"title" : @"身份证识别",@"selector" : @"ocrIdCard"},
                          @{@"title" : @"驾驶证识别",@"selector" : @"ocrDriverLicense"},
-                         @{@"title" : @"行驶证识别",@"selector" : @"ocrVehicleLicense"}],
+                         @{@"title" : @"行驶证识别",@"selector" : @"ocrVehicleLicense"},
+                         @{@"title" : @"银行卡识别",@"selector" : @"ocrBankCard"}],
                        
-                       @[@{@"title":@"人脸融合",@"selector":@"mergeface"}]];
+                       @[@{@"title":@"人脸融合",@"selector":@"mergeface"},
+                         @{@"title":@"车牌识别",@"selector":@"licensePlate"}]];
 }
 
 - (void)detectFace{
@@ -55,6 +61,12 @@
 - (void)searchFace{
     FCSearchViewController *comapareVC = [[FCSearchViewController alloc] init];
     [self.navigationController pushViewController:comapareVC animated:YES];
+}
+
+-(void)beautifyFace{
+    FCBeautifyViewController *beautifyVC = [[FCBeautifyViewController alloc] init];
+    beautifyVC.image = [UIImage imageNamed:@"beautify.jpg"];
+    [self.navigationController pushViewController:beautifyVC animated:YES];
 }
 
 - (void)detectBody{
@@ -81,6 +93,12 @@
     [self.navigationController pushViewController:driverLicenceVC animated:YES];
 }
 
+-(void)ocrBankCard{
+    FCBankCardViewController* bankCardVC = [[FCBankCardViewController alloc]init];
+    bankCardVC.image = [UIImage imageNamed:@"bankCard.jpg"];
+    [self.navigationController pushViewController:bankCardVC animated:YES];
+}
+
 - (void)ocrVehicleLicense{
     FCOCRVehicleLicenseViewController *vehicleLicenseVC = [[FCOCRVehicleLicenseViewController alloc] init];
     vehicleLicenseVC.image = [UIImage imageNamed:@"xingshizheng.jpg"];
@@ -90,8 +108,12 @@
 -(void)mergeface{
     FCmergefaceViewController* mergefaceVC = [[FCmergefaceViewController alloc]init];
     [self.navigationController pushViewController:mergefaceVC animated:YES];
+}
 
-    
+-(void)licensePlate{
+    FCLicensePlateViewController* licensePlateVC = [[FCLicensePlateViewController alloc]init];
+    licensePlateVC.image = [UIImage imageNamed:@"plate.jpg"];
+    [self.navigationController pushViewController:licensePlateVC animated:YES];
 }
 
 #pragma mark- delegate

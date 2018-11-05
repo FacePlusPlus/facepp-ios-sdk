@@ -161,9 +161,8 @@
             
             //显示每个人体的详细信息
             [self.dataArray addObjectsFromArray:arrayM];
-            [self.tableView reloadData];
         }
-        
+        [self.tableView reloadData];//无数据也需要刷新列表，原因：如果上传不合格照片，那么在滑动列表时会崩溃，因为这个时候self.dataArray是没有数据的
         //显示JSON
         if (info) {
             [self showResult:info];

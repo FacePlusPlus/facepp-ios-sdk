@@ -46,6 +46,16 @@
     [self POST:url completion:completion];
 }
 
+- (void)ocrBankCardCompletion:(void(^)(id info,NSError *error))completion{
+    NSString *url = [NSString stringWithFormat:@"%@/%@",OCR_CN,OCR_BANK_CARD];
+    [self POST:url completion:completion];
+}
+
+- (void)licensePlateCompletion:(void(^)(id info,NSError *error))completion{
+    NSString *url = [NSString stringWithFormat:@"%@%@",IMAGE_MERGEFACE_CN,OCR_LICENSE_PLATE];
+    [self POST:url completion:completion];
+}
+
 - (void)POST:(NSString *)url completion:(void(^)(id info,NSError *error))completion{
     if (!isChina) {
         NSLog(@"Error-->This method is only for China");
@@ -66,4 +76,5 @@
     
     [FCPPApi POST:url param:param completion:completion];
 }
+
 @end

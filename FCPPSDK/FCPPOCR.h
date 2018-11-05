@@ -57,4 +57,19 @@
  */
 - (void)detectSceneAndObjectCompletion:(void(^)(id info,NSError *error))completion;
 
+
+/**
+ 银行卡识别 https://console.faceplusplus.com.cn/documents/28070070
+
+ @param completion 结果回调
+ */
+- (void)ocrBankCardCompletion:(void(^)(id info,NSError *error))completion;
+
+/**
+ 车牌号识别 https://console.faceplusplus.com.cn/documents/33915254
+ 
+ @param completion 结果回调
+ */
+- (void)licensePlateCompletion:(void(^)(id info,NSError *error))completion;
+
 @end

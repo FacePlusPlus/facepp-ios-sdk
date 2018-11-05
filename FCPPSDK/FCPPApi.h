@@ -12,10 +12,11 @@
 
 #ifdef isChina
 #if isChina
-#define FACE_WEB_BASE     FACE_WEB_BASE_CN
-#define HUMANBODY_DETECT  HUMANBODY_DETECT_CN
-#define HUMANBODY_SEGMENT HUMANBODY_SEGMENT_CN
-#define IMAGE_MERGEFACE   IMAGE_MERGEFACE_CN
+#define FACE_WEB_BASE       FACE_WEB_BASE_CN
+#define HUMANBODY_DETECT    HUMANBODY_DETECT_CN
+#define HUMANBODY_SEGMENT   HUMANBODY_SEGMENT_CN
+#define IMAGE_MERGEFACE     IMAGE_MERGEFACE_CN
+#define FACE_BUEATIFY_BASE  FACE_BEAUTIFY_WEB_BASE_CN
 
 #else
 #define FACE_WEB_BASE     FACE_WEB_BASE_US
@@ -29,11 +30,13 @@
 
 //base url for China
 static NSString * FACE_WEB_BASE_CN = @"https://api-cn.faceplusplus.com/facepp/v3";
+static NSString * FACE_BEAUTIFY_WEB_BASE_CN = @"https://api-cn.faceplusplus.com/facepp";
 
 //base url for other country
 static NSString * FACE_WEB_BASE_US = @"https://api-us.faceplusplus.com/facepp/v3";
 
 static NSString * FACE_DETECT  = @"detect";
+static NSString * FACE_BEAUTIFY  = @"/beta/beautify";
 static NSString * FACE_COMPARE = @"compare";
 static NSString * FACE_SEARCH  = @"search";
 
@@ -60,11 +63,13 @@ static NSString * HUMANBODY_SEGMENT_CN = @"https://api-cn.faceplusplus.com/human
 static NSString * HUMANBODY_DETECT_US = @"https://api-us.faceplusplus.com/humanbodypp/beta/detect";
 static NSString * HUMANBODY_SEGMENT_US = @"https://api-us.faceplusplus.com/humanbodypp/beta/segment";
 
-//OCR 识别身份证/驾驶证/行驶证/文字/场景物体,Only for china
+//OCR 识别身份证/驾驶证/行驶证/文字/场景物体/银行卡识别,Only for china
 static NSString * OCR_CN = @"https://api-cn.faceplusplus.com/cardpp/v1";
 static NSString * OCR_CARD = @"ocridcard";
 static NSString * OCR_DRIVER_LICENSE = @"ocrdriverlicense";
 static NSString * OCR_VEHICLE_LICENSE = @"ocrvehiclelicense";
+static NSString * OCR_BANK_CARD = @"ocrbankcard";
+static NSString * OCR_LICENSE_PLATE = @"licenseplate";
 
 static NSString * IMAGE_CN = @"https://api-cn.faceplusplus.com/imagepp";
 static NSString * IMAGE_Object = @"beta/detectsceneandobject";
